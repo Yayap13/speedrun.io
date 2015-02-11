@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Blog
+{% endblock %}
+
+{% block navbarUser %}
+	{% include "::loginMenu.html.twig" %}
+{% endblock navbarUser %}
+
+{% block body %}
+	<div class="row">
+		<div id="menu" class="col-md-3">
+			<h3>Le blog</h3>
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="{{ path('yapblog_index') }}">Accueil du blog</a></li>
+				<li><a href="{{ path('yapblog_add') }}">Ajouter un article</a></li>
+			</ul>
+			{# render(controller("SdzBlogBundle:Blog:menu", {'nombre': 3})) #}
+		</div>
+		
+		<div class="col-md-9">
+			<h1>Blog</h1>
+			<hr>
+			{# On définit un nouveau bloc, que les vues du bundle pourront
+			remplir #}
+			{% block yapblog_body %}
+
+			{% endblock %}
+		</div>
+	</div>
+
+{% endblock %}

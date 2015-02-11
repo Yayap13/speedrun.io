@@ -1,0 +1,32 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - How to get started?
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+		<h2>How to get started?</h2>
+	</div>
+	<div class="row">
+		<div class="large-3 large-push-9 column">
+				<div>
+					<h4>You are:<h4>
+						<a class="" href="#runner">A Runner</a><br />
+						<a class="" href="#user">An User</a><br />
+				</div>
+			</div>
+			<div class="large-9 large-pull-3 column">
+				<h3 class="runner">A Runner</h3>
+					<ol>
+						<li>Search for the game your are running if it exists in the database. If yes, jump to 3.</li>
+						<li>Add your game <a href="{{ path('yapspeedrun_addgame') }}">here</a> and wait for it to be validated by the moderators or the community.</li>
+						<li>If your game is in <a href="{{ path('yapspeedrun_listgames') }}">this list</a>, you can submit a time by clicking on the link in the upper right section.</li>
+						<li>If your game is in <a href="{{ path('yapspeedrun_listgames') }}">this list</a>, but the category you are running in isn't, click on the "Add a run type" link.</li>
+					</ol>
+				<hr>
+				<h3 class="user">An User</h3>
+				<p>bla bli</p>
+			</div>
+	</div>
+{% endblock %}

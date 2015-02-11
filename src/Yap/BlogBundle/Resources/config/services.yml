@@ -1,0 +1,15 @@
+parameters:
+#    yap_blog.example.class: Yap\BlogBundle\Example
+
+services:
+#    yap_blog.example:
+#        class: %yap_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    yapblog.validator.antiflood:
+        class: Yap\BlogBundle\Validator\AntiFloodValidator
+        arguments: [@request, @doctrine.orm.entity_manager]
+        scope: request
+        tags:
+            - { name: validator.constraint_validator, alias: yapblog_antiflood }
+    yap_blog.antispam:
+        class: Yap\BlogBundle\Antispam\YapAntispam

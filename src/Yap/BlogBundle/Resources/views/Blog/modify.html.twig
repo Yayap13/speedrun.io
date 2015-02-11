@@ -1,0 +1,21 @@
+{% extends "YapBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Modifier un article - {{ parent() }}
+{% endblock %}
+
+{% block yapblog_body %}
+	<h2>Modifier un article</h2>
+	{% include "YapBlogBundle:Blog:form.html.twig" %}
+	<p>
+		Vous éditez un article déjà existant,
+		ne le changez pas trop pour éviter
+		aux membres de ne pas comprendre
+		ce qu'il se passe.
+	</p>
+	<p>
+		<a href="{{ path('yapblog_see', {'slug': article.slug}) }}" class="btn btn-default btn-primary btn-sm">
+			<i class="glyphicon glyphicon-icon-chevron-left"></i> Retour à l'article
+		</a>
+	</p>
+{% endblock %}

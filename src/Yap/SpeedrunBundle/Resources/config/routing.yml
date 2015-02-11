@@ -1,0 +1,87 @@
+yapspeedrun_index:
+    path: /
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:index }
+
+yapspeedrun_howto:
+    path: /howto
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:howTo }
+
+yapspeedrun_addgame:
+    path: /game/add
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:addGame }
+
+yapspeedrun_editgame:
+    path: /game/{slug}/edit
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:editGame }
+
+yapspeedrun_seegame:
+    path: /game/{slug}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:seeGame }
+
+yapspeedrun_seelevel:
+    path: /game/{slug}/{levelSlug}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:seeLevel }
+
+yapspeedrun_latesttimes:
+    path: /times
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:latestTimes }
+
+yapspeedrun_watch:
+    path: /game/{slug}/watch/{video}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:watch }
+
+yapspeedrun_validategame:
+    path: /validate/game/{slug}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:validateGame }
+
+yapspeedrun_addmodo:
+    path: /game/{slug}/addModo/{user}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:addModo, user: null }
+
+yapspeedrun_listgames:
+    path: /games
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:listGames }
+
+yapspeedrun_validatelistgames:
+    path: /validate/games
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:validateListGames }
+
+yapspeedrun_addcategory:
+    path: /category/add
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:addCategory }
+
+yapspeedrun_submittime:
+    path: /game/{slug}/submit/time
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:submitTime }
+
+yapspeedrun_createlinker:
+    path: /game/{slug}/create/runtype
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:createLinker }
+
+yapspeedrun_levelgraph:
+    path: /game/{slug}/{level}/graph/{linker}-{levelId}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:levelGraph }
+    requirements:
+        level: '[a-zA-Z0-9-_\/.]+'
+
+yapspeedrun_seeprofile:
+    path: /profile/{name}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:seeProfile }
+
+_difficultyByGameId:
+    path: /listByGame
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:getByGameId }
+
+_addTime:
+    path: /addTime
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:addTime }
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+
+dcs_rating:
+    resource: "@DCSRatingBundle/Resources/config/routing.xml"
+    prefix:   /

@@ -1,0 +1,47 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	Create a run type - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+<div class="row">
+  <div class="large-12 ">
+    <h2>Create a run type</h2>
+    {% include "YapSpeedrunBundle:Speedrun:basicForm.html.twig" %}
+    <p>
+      <a href="{{ path('yapspeedrun_seegame', {'slug': game.slug}) }}" class="btn btn-default btn-primary btn-sm">
+        <i class="glyphicon glyphicon-icon-chevron-left"></i> Retour au jeu
+      </a>
+    </p>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script type="text/javascript">
+$(function() {
+  $.ajax({
+        type: "GET",
+        data: "data=" + $('#yap_speedrunbundle_linker_game').val(),
+        url:"/Symfony/web/app_dev.php/listByGame",
+        success: function(msg){
+            if (msg != ''){
+               $('#yap_speedrunbundle_linker_difficulty').html(msg).show();
+               }
+               else
+               {
+                   $('#yap_speedrunbundle_linker_difficulty').html('<em>No item result</em>');
+               }
+           }
+       });
+  $('#picEditSend').click(function() {
+    $('#yap_speedrunbundle_linker_game').attr('disabled', false);
+  });
+  $('#yap_speedrunbundle_linker_game').attr('disabled', true);
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<table class="table table-{{ linker }}">
+	<thead>
+		<tr>
+			<th>
+				Level
+			</th>
+			<th>
+				Runner
+			</th>
+			<th>
+				World Record
+			</th>
+			<th>
+				Link
+			</th>
+			<th>
+				Graphs
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for time in bestTimes %}
+		<tr>
+			<th>
+				{{ time.level.name }}
+			</th>
+			<th>
+				{{ time.user }}
+			</th>
+			<th>
+				{{ time.time|secToHms }}
+			</th>
+			<th>
+				{{ time.video|getHost }}
+			</th>
+			<th>
+				<a href="{{ path('yapspeedrun_levelgraph', {'slug': time.linker.game.slug, 'level': time.level.slug, 'linker': time.linker.id, 'levelId': time.level.id}) }}">Graph</a>
+			</th>
+		</tr>
+	{% endfor %}				
+	</tbody>
+</table>

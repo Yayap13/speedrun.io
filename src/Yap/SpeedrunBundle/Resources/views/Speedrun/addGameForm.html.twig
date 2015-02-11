@@ -1,0 +1,63 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.name.vars.label }}
+                {{ form_widget(form.name) }}
+            </label>
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.categories.vars.label }}
+                {{ form_widget(form.categories) }}
+            </label>
+            {{ form_errors(form.categories) }}  
+        </div>
+    </div>
+
+    <div class="row">
+    <label>List of Levels</label>
+        <ul class="levels large-8 columns" data-prototype="{{ form_widget(form.levels.vars.prototype)|e }}">
+    		{# itère sur chaque level existant et affiche son unique champ : name #}
+            {% for level in form.levels %}
+                <li>
+                    {{ form_label(level.name) }}
+                    {{ form_errors(level.name) }}
+                    {{ form_widget(level.name) }}
+                </li>
+            {% endfor %}
+    	</ul>
+    </div>
+
+    <div class="row">
+        <label>List of Difficulties</label>
+        <ul class="difficulties large-8 columns" data-prototype="{{ form_widget(form.difficulties.vars.prototype)|e }}">
+            {# itère sur chaque difficulty existant et affiche son unique champ : name #}
+            {% for difficulty in form.difficulties %}
+                <li>
+                    {{ form_label(difficulty.name) }}
+                    {{ form_errors(difficulty.name) }}
+                    {{ form_widget(difficulty.name) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="row">Select an Image</div>
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.imageFile.vars.label }}
+                {{ form_widget(form.imageFile) }}
+            </label>
+            {{ form_errors(form.imageFile) }}
+        </div>
+    </div>
+
+
+<button id="picEditSend" class="btn btn-default"/>Submit<input style="display: none;"type="submit" /></button>
+
+{{ form_end(form) }}

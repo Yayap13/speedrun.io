@@ -1,0 +1,151 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	Submit Time - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+  <div class="row">
+    <div class="large-12 gameTitle">
+      <h2 class="gameTitleName">Submit time for {{ game.name }}</h2>
+      <div class="gameTitleImg">
+        <img src="{{ vich_uploader_asset(game, 'imageFile') }}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 column">
+    {% for linker in game.linkers %}
+      <div class="large-6 column">
+        <div class="well">
+          <h3 class="titleTime">{{ linker.name }}</h3><hr>
+
+          {% for level in game.levels %}
+            <h4 class="levelName" onclick="$('#group-{{ linker.id }}-{{ level.id }}').slideToggle();">{{ level.name }} <span class="caret"></span></h4>
+            <div class="well inner-div groupTime" id="group-{{ linker.id }}-{{ level.id }}">
+
+              <input class="form-control inputs" id="hours-{{ linker.id }}-{{ level.id }}" placeholder="hh" maxlength="2" max="23" min="00" style="width: 42px; padding: 0px; text-align:center;"> :
+                
+              <input class="form-control inputs" id="minutes-{{ linker.id }}-{{ level.id }}" placeholder="mm" maxlength="2" max="59" min="00" style="width: 42px; padding: 0px; text-align:center;"> :
+                
+              <input class="form-control inputs" id="seconds-{{ linker.id }}-{{ level.id }}" placeholder="ss" maxlength="2" max="59" min="00" style="width: 42px; padding: 0; text-align:center;"> :
+
+              <input class="form-control inputs" id="milli-{{ linker.id }}-{{ level.id }}" placeholder="ms" maxlength="3" max="999" min="000" style="width: 42px; padding: 0; text-align:center;">
+              <br />
+
+              <form class="form" role="form">
+                <div class="form-">
+                  <label for="video-{{ linker.id }}-{{ level.id }}">Vidéo link</label>
+                  <input class="form-control" id="video-{{ linker.id }}-{{ level.id }}">
+                </div>
+                <div class="form-group">
+                  <label for="note-{{ linker.id }}-{{ level.id }}">Notes</label>
+                  <textarea class="form-control" id="note-{{ linker.id }}-{{ level.id }}" rows="3"></textarea>
+                </div>
+                <button type="button" id="{{ linker.id }}-{{ level.id }}" class="btn btn-primary btn-sm pull-right jquery">
+                  Add <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </form>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <hr>
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script type="text/javascript">
+$( document ).ready(function() {
+
+  $(".inputs").keyup(function () {
+
+    if (this.value > this.max) {
+      $(this).val(this.max);
+    }
+
+    if (this.value < this.min && this.value.length > 0 && this.value != 0) {
+      $(this).val(this.min);
+    }
+
+    if (this.value.length == this.maxLength) {
+      $(this).next('.inputs').focus();
+    }
+  });
+
+  /*$(".inputs").blur(function () {
+    if (this.value < 10 && this.value.length < 2) {
+      $(this).val('0'+this.value);
+    }
+  });*/
+
+  $(".inputs").focus(function () {
+    $(this).select();
+  });
+
+  $(".inputs").mouseup(function(e){
+    e.preventDefault();
+  });
+
+  $('.jquery').click( function() {
+    $(this).html('Sending. . .');
+    $(this).addClass('loader');
+    var ids = $(this).attr('id');
+    var arr = ids.split('-');
+    var linker = arr[0];
+    var level = arr[1];
+    if (!$('#hours-'+ids).val()) {
+      var hours = 0;
+    } else {
+      var hours = $('#hours-'+ids).val();
+    }
+    if (!$('#minutes-'+ids).val()) {
+      var minutes = 0;
+    } else {
+      var minutes = $('#minutes-'+ids).val();
+    }
+    if (!$('#seconds-'+ids).val()) {
+      var seconds = 0;
+    } else {
+      var seconds = $('#seconds-'+ids).val();
+    }
+    if (!$('#milli-'+ids).val()) {
+      var milli = 0;
+    } else {
+      var milli = $('#milli-'+ids).val();
+    }
+    var time = (parseInt(hours)*3600*1000) + (parseInt(minutes)*60*1000) + (parseInt(seconds)*1000) + parseInt(milli);
+    var video = $('#video-'+ids).val();
+    var note = $('#note-'+ids).val();
+     $.ajax({
+          type: "POST",
+          data: {linker: linker, level: level, time: time, video: video, note: note},
+          url:"/Symfony/web/app_dev.php/addTime",
+          success: function (data) {
+            if(data==200){
+              $('#'+ids).before('<div class="alert alert-success" role="alert">Time added!</div>');
+              $('#'+ids).html('Add <span class="glyphicon glyphicon-plus"></span>');
+              $('#'+ids).removeClass('loader');
+              $('#'+ids).prev().delay(4000).fadeOut(800, function(){
+                  $(this).remove();
+                });
+            } else {
+              $('#'+ids).before('<div class="alert alert-danger" role="alert">The time and the video link are required.</div>');
+              $('#'+ids).html('Add <span class="glyphicon glyphicon-plus"></span>');
+              $('#'+ids).removeClass('loader');
+              $('#'+ids).prev().delay(4000).fadeOut(800, function(){
+                  $(this).remove();
+                });
+            }
+            }
+        });
+    });
+});
+</script>
+
+{% endblock %}

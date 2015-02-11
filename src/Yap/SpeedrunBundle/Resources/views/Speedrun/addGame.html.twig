@@ -1,0 +1,167 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	Add a new Game - {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/picedit.min.css') }}" type="text/css" />
+{% endblock %}
+
+{% block yapspeedrun_body %}
+<div class="row">
+	<div class="large-12 ">
+		<h2>Add a new Game</h2>
+		{% include "YapSpeedrunBundle:Speedrun:addGameForm.html.twig" %}
+
+		<p>
+			<a href="{{ path('yapspeedrun_index') }}" class="btn btn-default btn-primary btn-sm">
+				<i class="glyphicon glyphicon-icon-chevron-left"></i> Retour à l'accueil
+			</a>
+		</p>
+	</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script type="text/javascript" src="{{ asset('js/picedit.min.js') }}"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('#yap_speedrunbundle_game_imageFile').picEdit({
+        	maxWidth: 1000,
+        	formSubmitted: function(response){
+     			$('#picEditSend').removeClass('loader');
+				$('#picEditSend').html('Submit');
+				if(response.status == '200') {
+					$('#picEditSend').before( "<p>Game succefully edited!</p>" );
+				}
+  			}
+        });
+
+        $('#picEditSend').click(function() {
+			$(this).addClass('loader');
+			$(this).html('Sending. . .');
+		});
+    });
+</script>
+
+<script type="text/javascript">
+	// Récupère le div qui contient la collection de levels
+	var collectionLevelHolder = $('ul.levels');
+	var collectionDifficultyHolder = $('ul.difficulties');
+
+	// ajoute un lien « add a level »
+	var $addLevelLink = $('<a href="#" id="add_level_link">Add a level</a>');
+	var $newLevelLinkLi = $('<li></li>').append($addLevelLink);
+
+	// ajoute un lien « add a difficulty »
+	var $addDifficultyLink = $('<a href="#" id="add_difficulty_link">Add a difficulty</a>');
+	var $newDifficultyLinkLi = $('<li></li>').append($addDifficultyLink);
+
+	jQuery(document).ready(function() {
+
+		$('.catName').each(function() {
+		    var $this = $(this);
+		    $this.popover({
+		      trigger: 'hover',
+		      placement: 'right',
+		      html: true,
+		      content: $this.find('.catDesc').html()  
+		    });
+		});
+
+		collectionLevelHolder.find('li').each(function() {
+        		addLevelFormDeleteLink($(this));
+    		});
+
+		collectionDifficultyHolder.find('li').each(function() {
+        		addDifficultyFormDeleteLink($(this));
+    		});
+
+	    // ajoute l'ancre « ajouter un level » et li à la balise ul
+	    collectionLevelHolder.append($newLevelLinkLi);
+
+	    // ajoute l'ancre « ajouter un difficulty » et li à la balise ul
+	    collectionDifficultyHolder.append($newDifficultyLinkLi);
+
+	    $addLevelLink.on('click', function(e) {
+	        // empêche le lien de créer un « # » dans l'URL
+	        e.preventDefault();
+
+	        // ajoute un nouveau formulaire tag (voir le prochain bloc de code)
+	        addLevelForm(collectionLevelHolder, $newLevelLinkLi);
+	    });
+
+	    $addDifficultyLink.on('click', function(e) {
+	        // empêche le lien de créer un « # » dans l'URL
+	        e.preventDefault();
+
+	        // ajoute un nouveau formulaire tag (voir le prochain bloc de code)
+	        addDifficultyForm(collectionDifficultyHolder, $newDifficultyLinkLi);
+	    });
+	});
+
+	function addLevelForm(collectionLevelHolder, $newLevelLinkLi) {
+	    // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
+	    var prototype = collectionLevelHolder.attr('data-prototype');
+
+	    // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
+	    // la longueur de la collection courante
+	    var newLevelForm = prototype.replace(/__name__/g, collectionLevelHolder.children().length);
+
+	    // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
+	    var $newLevelFormLi = $('<li></li>').append(newLevelForm);
+	    $newLevelLinkLi.before($newLevelFormLi);
+	    addLevelFormDeleteLink($newLevelFormLi);
+	}
+
+	function addDifficultyForm(collectionDifficultyHolder, $newDifficultyLinkLi) {
+	    // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
+	    var prototype = collectionDifficultyHolder.attr('data-prototype');
+
+	    // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
+	    // la longueur de la collection courante
+	    var newDifficultyForm = prototype.replace(/__name__/g, collectionDifficultyHolder.children().length);
+
+	    // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
+	    var $newDifficultyFormLi = $('<li></li>').append(newDifficultyForm);
+	    $newDifficultyLinkLi.before($newDifficultyFormLi);
+	    addDifficultyFormDeleteLink($newDifficultyFormLi);
+	}
+
+	function addLevelFormDeleteLink($levelFormLi) {
+	    var $removeLevelFormA = $('<a href="#">Delete this level</a>');
+	    $levelFormLi.append($removeLevelFormA);
+
+	    $removeLevelFormA.on('click', function(e) {
+	        // empêche le lien de créer un « # » dans l'URL
+	        e.preventDefault();
+
+	        // supprime l'élément li pour le formulaire de tag
+	        $levelFormLi.remove();
+	    });
+	}
+
+	function addDifficultyFormDeleteLink($DifficultyFormLi) {
+	    var $removeDifficultyFormA = $('<a href="#">Delete this difficulty</a>');
+	    $DifficultyFormLi.append($removeDifficultyFormA);
+
+	    $removeDifficultyFormA.on('click', function(e) {
+	        // empêche le lien de créer un « # » dans l'URL
+	        e.preventDefault();
+
+	        // supprime l'élément li pour le formulaire de tag
+	        $DifficultyFormLi.remove();
+	    });
+	}
+
+//http://symfony.com/fr/doc/master/book/forms.html#form-rendering-template
+//http://symfony.com/fr/doc/current/cookbook/form/form_collections.html
+</script>
+
+{% endblock %}

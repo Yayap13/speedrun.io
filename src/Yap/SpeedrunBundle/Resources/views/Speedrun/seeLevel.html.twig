@@ -1,0 +1,96 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ game.name }} / {{ level.name }} - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+		<div class="large-12 gameTitle">
+			<h2 class="gameTitleName">{{ game.name }} - {{ level.name }}</h2>
+			<div class="gameTitleImg">
+				<img src="{{ vich_uploader_asset(game, 'imageFile') }}">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 large-push-9 column">
+			<div>
+				<h4>Run Types:<h4>
+				{% for linker in game.linkers %}
+					<a class="tableLink tableLink-{{ linker.id }}" href="#{{ linker.id }}">{{ linker.name }}</a><br />
+				{% endfor %}
+			</div>
+			<div>
+				<h4>Option Panel</h4>
+				<a href="{{ path('yapspeedrun_submittime', {'slug': game.slug}) }}">Submit a new Time</a>
+			</div>
+		</div>
+		<div class="large-9 large-pull-3 column">
+			{% for linker in game.linkers %}
+				<h3 class="tableTitle tableTitle-{{ linker.id }}">{{ linker.name }}</h3><span class="showMoreBtn"> - More info</span>
+				<div class="showMoreContent">
+					<span>{{ linker.category.name }}:</span> {{ linker.category.description }}
+				</div>
+				{% if linker.times is not empty %}
+					<table class="table table-{{ linker.id }}">
+						<thead>
+							<tr>
+								<th>
+									Level
+								</th>
+								<th>
+									Time
+								</th>
+								<th>
+									Runner
+								</th>
+								<th>
+									Date
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for time in times %}
+						{% if time.linker.id == linker.id %}
+						<tr>
+							<th>
+								{{ time.level.name }}
+							</th>
+							<th>
+								{{ time.time|formatMs }}
+							</th>
+							<th>
+								{{ time.user.username }}
+							</th>
+							<th>
+								{{ time.date|date("d M Y") }}
+							</th>
+						</tr>
+						{% endif %}
+						{% endfor %}				
+						</tbody>
+					</table>
+				{% else %}
+					<div class="table table-{{ linker.id }}" style="box-shadow: none;">
+						No times for this level yet!<br>
+						Be the first to <a href="{{ path('yapspeedrun_submittime', {'slug': game.slug}) }}">submit one!</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% if game.linkers is empty %}
+				<h3>No run types exist</h3>
+				<div>
+					Please add at least one run type.
+				</div>
+			{% endif %}	
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+{% endblock %}

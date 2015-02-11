@@ -1,0 +1,78 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.name.vars.label }}
+                {{ form_widget(form.name) }}
+            </label>
+            {{ form_errors(form.name) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.game.vars.label }}
+                {{ form_widget(form.game) }}
+            </label>
+            {{ form_errors(form.game) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.difficulty.vars.label }}
+                {{ form_widget(form.difficulty) }}
+            </label>
+            {{ form_errors(form.difficulty) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.category.vars.label }}
+                {{ form_widget(form.category) }}
+            </label>
+            {{ form_errors(form.category) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.scripted.vars.label }}
+                {{ form_widget(form.scripted) }}
+            </label>
+            {{ form_errors(form.scripted) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.segmented.vars.label }}
+                {{ form_widget(form.segmented) }}
+            </label>
+            {{ form_errors(form.segmented) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.tas.vars.label }}
+                {{ form_widget(form.tas) }}
+            </label>
+            {{ form_errors(form.tas) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.version.vars.label }}
+                {{ form_widget(form.version) }}
+            </label>
+            {{ form_errors(form.version) }}  
+        </div>
+    </div>
+
+    <button id="picEditSend" class="btn btn-default"/>Submit<input style="display: none;"type="submit" /></button>
+
+{{ form_end(form) }}

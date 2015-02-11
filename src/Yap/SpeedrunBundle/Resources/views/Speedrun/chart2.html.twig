@@ -1,0 +1,95 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+
+<link type="text/css" rel="stylesheet" href="{{ asset('rickshaw/src/css/graph.css') }}">
+<link type="text/css" rel="stylesheet" href="{{ asset('rickshaw/src/css/detail.css') }}">
+<link type="text/css" rel="stylesheet" href="{{ asset('rickshaw/src/css/legend.css') }}">
+<link type="text/css" rel="stylesheet" href="{{ asset('rickshaw/examples/css/lines.css') }}">
+
+<script src="{{ asset('rickshaw/vendor/d3.v3.js') }}"></script>
+<script src="{{ asset('rickshaw/rickshaw.js') }}"></script>
+
+{#{% for times in bestTimes %}
+	{{ dump(times.time) }}
+	{{ dump(times.date.date) }}
+	{{ dump(times.video) }}
+	{{ dump(times.user.username) }}
+{% endfor %}
+
+{# {{ dump(bestTimes) }} #}
+<div id="chart_container">
+	<div id="chart"></div>
+	<div id="legend_container">
+		<div id="smoother" title="Smoothing"></div>
+		<div id="legend"></div>
+	</div>
+	<div id="slider"></div>
+</div>
+
+
+<script>
+
+// instantiate our graph!
+var seriesArray = [
+		{
+			color: "#c05020",
+			data: [
+			{% for times in bestTimes %}
+				{ x: new Date().setTime({{times.date|date("Y M d h i s")}}), y: {{times.time}} },
+			{% endfor %}
+				],
+			name: 'New York'
+		}, 
+		{
+			color: 'steelblue',
+     		data: [ 
+     			{ x: 0, y: 30},
+     			{ x: 2.5, y: 45 },
+     			{ x: 4, y: 64 } ],
+     		name: 'Test'
+    	}
+	];
+
+var graph = new Rickshaw.Graph( {
+	element: document.getElementById("chart"),
+	width: 700,
+	height: 500,
+	renderer: 'lineplot',
+	series: seriesArray
+} );
+
+graph.render();
+
+var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+	graph: graph
+} );
+
+var legend = new Rickshaw.Graph.Legend( {
+	graph: graph,
+	element: document.getElementById('legend')
+
+} );
+
+var shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
+	graph: graph,
+	legend: legend
+} );
+
+var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight({
+    graph: graph,
+    legend: legend
+});
+
+var xAxis = new Rickshaw.Graph.Axis.Time({
+    graph: graph
+});
+
+xAxis.render();
+
+var yAxis = new Rickshaw.Graph.Axis.Y({
+    graph: graph
+});
+
+yAxis.render();
+
+
+</script>

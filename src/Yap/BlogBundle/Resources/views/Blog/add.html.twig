@@ -1,0 +1,16 @@
+{% extends "YapBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Add un article - {{ parent() }}
+{% endblock %}
+
+{% block yapblog_body %}
+	<h2>Ajouter un article</h2>
+	{% include "YapBlogBundle:Blog:form.html.twig" %}
+
+	<p>
+		<a href="{{ path('yapblog_index') }}" class="btn btn-default btn-primary btn-sm">
+			<i class="glyphicon glyphicon-icon-chevron-left"></i> Retour à l'accueil
+		</a>
+	</p>
+{% endblock %}

@@ -1,0 +1,922 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+
+@bg-color: #4D4D4D;
+@grey-color: #454545;
+@success-color: #4EED39;
+@warning-color: #ED3939;
+@blue-color: #3987ED; //27A1EA
+@darkblue-color: #3945ED;
+@orange-color: #FF9A1E;
+@purple-color: #792FEC;
+
+@logo-color: #27A1EA;
+
+@arrow-size: 60px;
+@invis-arrow: #383838;
+
+body {
+  height: 100%;
+  background: url("http://www.transparenttextures.com/patterns/assault.png") repeat, linear-gradient(@bg-color, darken(@bg-color, 10%));
+  background-attachment: fixed;
+  color: white;
+  font-family: Lato, Roboto;
+  font-size: 16px;
+}
+
+.nav {
+  height: 50px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 0;
+  background: @invis-arrow;
+  border-bottom: 4px solid @darkblue-color;
+  box-shadow: 0px 1px 4px black;
+}
+
+.menu {
+  float: left;
+}
+
+.menu-nav {
+  width: 40%;
+  display: block;
+}
+
+.menu-logo {
+  width: 20%;
+  display: block;
+  margin-top: 8px;
+}
+
+.menu-login {
+  width: 40%;
+  display: block;
+}
+
+.menu li {
+  display: inline-block;
+  margin: 0;
+  margin-right: -2px;
+  width: 120px;
+  position: relative;
+}
+
+.verticalRule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: 1px;
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
+.verticalRuleRight {
+  left: auto; //reset left "0"
+  right: 0;
+}
+
+.menu li:first-child a {
+  //border-left: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.menu li:first-child a:hover:after {
+  //left: 1px;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  position: relative;
+  line-height: 50px;
+  //border-right: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.menu li a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  width: 120px;
+  height: 4px;
+  //background: @blue-color;
+}
+
+.menu li a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  width: 0px;
+  height: 4px;
+  background: @blue-color;
+  transition: left .5s, width .5s;
+}
+
+.menu li a:hover:after {
+  left: 0px;
+  width: 120px;
+}
+
+.menu li a:active {
+  box-shadow: inset 0 2px 6px black;
+}
+
+.menu li a:active:before {
+  display: none;
+}
+
+
+.gameTitle {
+  height: 100px;
+  position: relative;
+}
+
+.gameTitleName {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5), -1px -1px 0px rgba(255, 255, 255, 0.5), 1px -1px 0px rgba(255, 255, 255, 0.5), -1px 1px 0px rgba(255, 255, 255, 0.5);
+  font-family: 'open sans';
+  font-size: 30px;
+  letter-spacing: 6px;
+  z-index: 5;
+}
+
+.gameTitleImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.tableTitle {
+  display: inline-block;
+}
+
+.showMoreBtn {
+  font-size: 8px;
+  font-weight: initial;
+  font-style: italic;
+}
+
+.showMoreBtn:hover { cursor: pointer; }
+
+.showMoreBtn:after {
+  content: url(../images/asc.gif);
+}
+
+.showMoreContent {
+  display: none;
+  padding-bottom: 16px;
+}
+
+.showMoreContent span {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.validateGame {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.rating {
+  font-size: 26px;
+}
+
+.editGame {
+  font-size: 20px;
+  color: @warning-color;
+}
+
+table { border-collapse: collapse; }
+table a, table a:visited { color: white; font-style: italic; }
+table a:hover { color: @orange-color; }
+td { padding: 6px; }
+
+.tableLink-selected {
+  position: relative;
+  font-style: italic;
+  color: @blue-color !important;
+  margin-left: 8px;
+}
+
+.tableLink-selected:after {
+  content: url(../images/arrowLeft.png);
+  position: absolute;
+  top: 0px;
+  right: -20px;
+}
+
+.table {
+  width: 100%;
+  box-shadow: 0px 0px 4px black;
+  //border: 2px solid @grey-color;
+  //border-radius: 3px;
+}
+
+tr:nth-child(even) {
+    background-color: darken(@grey-color, 10%);
+}
+
+tr:hover {
+  background: linear-gradient(to left, @darkblue-color, @blue-color);
+}
+
+.table th {
+  border: 1px solid lighten(@grey-color, 10%);
+  padding: 4px;
+}
+
+table.table thead tr .header {
+  background-image: url(../images/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center left;
+  cursor: pointer;
+  padding: 10px;
+}
+
+table.table thead tr .headerSortUp {
+  background-image: url(../images/asc.gif);
+}
+
+table.table thead tr .headerSortDown {
+  background-image: url(../images/desc.gif);
+}
+
+.table thead {
+  background-color: lighten(@grey-color, 20%);
+}
+
+.titleTime {
+  color: @orange-color;
+}
+.levelName:hover {
+  cursor: pointer;
+}
+.groupTime {
+  display: none;
+}
+
+
+
+
+//Responsive Zone
+
+@media (max-width: 800px) {
+
+  .nav {
+    position: static;
+  }
+
+  .site-container, .pusher { height: 100%; }
+
+  .site-container {
+    overflow: hidden; 
+  }
+
+  .pusher {
+    transition-duration: .3s;
+    transform: translateX(0px);
+  }
+
+  .with-sidebar .pusher {
+    transform: translateX(250px);
+  }
+
+  .with-sidebar .site-cache {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7)
+  }
+
+  .content {
+    position: absolute;
+    padding-top: 0;
+    top: 52px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .menu-burger a {
+    display: inline-block !important;
+  }
+
+  .modularMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    /* If menu need to be scrollable cause too long
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    */
+    width: 250px;
+    height: 100%;
+    background: darken(@invis-arrow, 5%);
+    transform: translateX(-250px);
+  }
+
+  .menu-nav {
+    width: 100% !important;
+  }
+
+  .menu-login {
+    width: 100% !important;
+  }
+
+  .menu li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .menu li a, .menu li a:first-child {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid @invis-arrow;
+  }
+  
+  .menu li a:hover:after {
+    width: 0;
+  }
+
+  .gameTitleName {
+    top: 24px;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  .menu-nav {
+    width: 65%;
+  }
+
+  .menu-logo {
+    width: 0%;
+    display: none;
+  }
+
+  .menu-login {
+    width: 35%;
+  }
+}
+
+// Global styles
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: @orange-color;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+
+
+// Logo
+
+.center {
+  width: @arrow-size*3.5;
+  margin: auto;
+  position: relative;
+  //animation: spin 2s infinite;
+}
+
+.center:hover {
+  //animation: spin 2s infinite;
+}
+
+.center:hover .arrow {
+  //animation: shake-up 1s infinite;
+}
+
+.center:hover .arrow-180 {
+  //animation: shake-down 1s infinite;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  position: relative;
+  text-indent: -9999px;
+  border-bottom: @arrow-size*25/100 solid @logo-color;
+  border-left: @arrow-size*75/100 solid transparent;
+  //animation: shake-up 1s infinite;
+  animation: arrow-1 2s infinite;
+}
+
+.arrow:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 0;
+  //color here must match bg-color!
+  border-bottom: @arrow-size*25/100 solid @invis-arrow;
+  border-left: @arrow-size*15/100 solid transparent;
+}
+
+.arrow:after {
+  content: "";
+  width: @arrow-size*250/100;
+  height: @arrow-size*7/100;
+  position: absolute;
+  left: -@arrow-size*15/100;
+  top: @arrow-size*15/100;
+  background: spin(@logo-color, 20);
+  // 150px 0px 75px -75px #FFE51E inset
+  box-shadow: inset @arrow-size*250/100 0px @arrow-size*125/100 -@arrow-size*125/100 @logo-color;  
+  animation: arrow-2 2s infinite;
+}
+
+.arrow-180 {
+  transform: rotate(180deg) translatex(-@arrow-size*3.5) translateY(-4px);
+  border-bottom: @arrow-size*25/100 solid spin(@logo-color, 20);
+  //animation: shake-down 1s infinite;
+  animation: arrow-3 2s infinite;
+}
+
+.arrow-180:after {
+  background: @logo-color;
+  // 150px 0px 75px -75px #FFE51E inset
+  box-shadow: inset @arrow-size*250/100 0px @arrow-size*125/100 -@arrow-size*125/100 spin(@logo-color, 20);
+  animation: arrow-4 2s infinite;
+}
+
+@keyframes arrow-1 {
+  50% { border-bottom: @arrow-size*25/100 solid spin(@logo-color, 20); }
+}
+
+@keyframes arrow-2 {
+  50% { 
+    background: @logo-color;
+    box-shadow: inset @arrow-size*250/100 0px @arrow-size*125/100 -@arrow-size*125/100 spin(@logo-color, 20);
+  }
+}
+@keyframes arrow-3 {
+  50% { border-bottom: @arrow-size*25/100 solid @logo-color; }
+}
+@keyframes arrow-4 {
+  50% { 
+    background: spin(@logo-color, 20);
+    box-shadow: inset @arrow-size*250/100 0px @arrow-size*125/100 -@arrow-size*125/100 @logo-color;
+  }
+}
+
+@keyframes shake-up{
+  0% { margin-left: 0; }
+  50% { margin-left: -@arrow-size*40/100; }
+  100% { margin-left: 0; }
+}
+
+@keyframes shake-down{
+  0% { left: 0; }
+  50% { left: @arrow-size*40/100; }
+  100% { left: 0; }
+}
+
+@keyframes spin{
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(360deg); }
+}
+
+//Flashbag Message
+
+.flashbag {
+  width: 600px;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  background: darken(@grey-color, 10%);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.flashbag:before {
+  white-space: pre;
+  font-weight: bold;
+}
+
+.flashbag-info {
+  box-shadow: 0px 2px 4px @orange-color;
+}
+.flashbag-info:before {
+  content: 'Information \a' attr(title);
+  color: @orange-color;
+}
+
+.flashbag-success {
+  box-shadow: 0px 2px 4px @success-color;
+}
+.flashbag-success:before {
+  content: 'Success \a' attr(title);
+  color: @success-color;
+}
+
+.flashbag-warning {
+  box-shadow: 0px 2px 4px @warning-color;
+}
+.flashbag-warning:before {
+  content: 'Warning \a' attr(title);
+  color: @warning-color;
+}
+
+
+// Menu Burger
+
+.burger-icon {
+  position: absolute;
+  left: 80px;
+  top: 14px;
+  display: none;
+  width:18px;
+  height:18px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.burger-icon i {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  color:#fff;
+  font:bold 14px/.4 Helvetica;
+  text-transform: uppercase;
+  text-indent:-55px;
+  background: #fff;
+  transition:all .2s ease-out;
+}
+.burger-icon i::before, .burger-icon i::after {
+  content:'';
+  width: 18px;
+  height: 3px;
+  background: @darkblue-color;
+  position: absolute;
+  left:0;
+  transition:all .2s ease-out;
+}
+.burger-icon i::before {
+  top: -7px;
+}
+.burger-icon i::after {
+  bottom: -7px;
+}
+.burger-icon:hover i::before {
+  top: -10px;
+}
+.burger-icon:hover i::after {
+  bottom: -10px;
+}
+.burger-icon.active i {
+  background: transparent;
+}
+.burger-icon.active i::before {
+  top:0;
+  -webkit-transform: rotateZ(45deg);
+     -moz-transform: rotateZ(45deg);
+      -ms-transform: rotateZ(45deg);
+       -o-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+.burger-icon.active i::after {
+  bottom:0;
+  -webkit-transform: rotateZ(-45deg);
+     -moz-transform: rotateZ(-45deg);
+      -ms-transform: rotateZ(-45deg);
+       -o-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+
+// Boutons design
+
+.btn {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Helvetica;
+  font-style: italic;
+  text-shadow: 1px 1px 4px rgba(20,20,20,0.7);
+  cursor: pointer;
+  border: 2px solid black;
+  width: 180px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: @grey-color;
+  position: relative;
+}
+.btn:hover, .btn:focus, .btn:active {
+  background-color: @grey-color !important;
+}
+
+.btn:active {
+  box-shadow: inset 0px 0px 10px black;
+}
+
+.btn-success {
+  background-color: @success-color;
+}
+
+.btn-warning {
+  background-color: @warning-color;
+}
+
+.btn-info {
+  background-color: @blue-color;
+}
+
+.btn-info2 {
+  background-color: @darkblue-color;
+}
+
+.loader{
+  animation: color .35s infinite;  
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 180px;
+  height: 2px;
+  background-color: orange;
+  background: linear-gradient(to left, rgba(255,165,0,0) , rgba(255,165,0,1), rgba(255,165,0,0));
+  animation: anim 0.7s infinite;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 180px;
+  height: 2px;
+  background-color: orange;
+  background: linear-gradient(to left, rgba(255,165,0,0) , rgba(255,165,0,1), rgba(255,165,0,0));
+  animation: anim 0.7s infinite;
+}
+
+@keyframes anim {
+  0% { width: 0px;  }
+  25% { width: 180px; right: 0px;  }
+  50% { width: 0px; right: 180px; }
+  75% { width: 180px; right: 0px; }
+  100% { width: 0px; }
+}
+
+@keyframes color {
+  0% { opacity: 1;  }
+  50% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+
+/**
+ * Tooltips!
+ */
+
+/* Base styles for the element that has a tooltip */
+[data-tooltip],
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Base styles for the entire tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+    opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out,
+    -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -moz-transition:    
+    opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out,
+    -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transition:         
+    opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out,
+    transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+/* Show the entire tooltip on hover and focus */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* Base styles for the tooltip's directional arrow */
+.tooltip:before,
+[data-tooltip]:before {
+  z-index: 1001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+}
+
+/* Base styles for the tooltip's content area */
+.tooltip:after,
+[data-tooltip]:after {
+  z-index: 1000;
+  padding: 8px;
+  width: 160px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 1);
+  color: #fff;
+  content: attr(data-tooltip);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Directions */
+
+/* Top (default) */
+[data-tooltip]:before,
+[data-tooltip]:after,
+.tooltip:before,
+.tooltip:after,
+.tooltip-top:before,
+.tooltip-top:after {
+  bottom: 100%;
+  left: 50%;
+}
+
+[data-tooltip]:before,
+.tooltip:before,
+.tooltip-top:before {
+  margin-left: -6px;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 1);
+}
+
+/* Horizontally align top/bottom tooltips */
+[data-tooltip]:after,
+.tooltip:after,
+.tooltip-top:after {
+  margin-left: -80px;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:focus:after,
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after,
+.tooltip-top:hover:before,
+.tooltip-top:hover:after,
+.tooltip-top:focus:before,
+.tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+
+/* Left */
+.tooltip-left:before,
+.tooltip-left:after {
+  right: 100%;
+  bottom: 50%;
+  left: auto;
+}
+
+.tooltip-left:before {
+  margin-left: 0;
+  margin-right: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-left-color: #000;
+  border-left-color: hsla(0, 0%, 20%, 1);
+}
+
+.tooltip-left:hover:before,
+.tooltip-left:hover:after,
+.tooltip-left:focus:before,
+.tooltip-left:focus:after {
+  -webkit-transform: translateX(-12px);
+  -moz-transform:    translateX(-12px);
+  transform:         translateX(-12px); 
+}
+
+/* Bottom */
+.tooltip-bottom:before,
+.tooltip-bottom:after {
+  top: 100%;
+  bottom: auto;
+  left: 50%;
+}
+
+.tooltip-bottom:before {
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  border-bottom-color: hsla(0, 0%, 20%, 1);
+}
+
+.tooltip-bottom:hover:before,
+.tooltip-bottom:hover:after,
+.tooltip-bottom:focus:before,
+.tooltip-bottom:focus:after {
+  -webkit-transform: translateY(12px);
+  -moz-transform:    translateY(12px);
+  transform:         translateY(12px); 
+}
+
+/* Right */
+.tooltip-right:before,
+.tooltip-right:after {
+  bottom: 50%;
+  left: 100%;
+}
+
+.tooltip-right:before {
+  margin-bottom: 0;
+  margin-left: -12px;
+  border-top-color: transparent;
+  border-right-color: #000;
+  border-right-color: hsla(0, 0%, 20%, 1);
+}
+
+.tooltip-right:hover:before,
+.tooltip-right:hover:after,
+.tooltip-right:focus:before,
+.tooltip-right:focus:after {
+  -webkit-transform: translateX(12px);
+  -moz-transform:    translateX(12px);
+  transform:         translateX(12px); 
+}
+
+/* Move directional arrows down a bit for left/right tooltips */
+.tooltip-left:before,
+.tooltip-right:before {
+  top: 3px;
+}
+
+/* Vertically center tooltip content for left/right tooltips */
+.tooltip-left:after,
+.tooltip-right:after {
+  margin-left: 0;
+  margin-bottom: -16px;
+}
+
+// General Stuff
+
+label {
+  color: white !important;
+}
+
+a {
+  color: @orange-color;
+  text-decoration: none;
+}

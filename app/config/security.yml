@@ -1,0 +1,35 @@
+security:
+    providers:
+        main:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: true
+            provider: main
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path: fos_user_security_logout
+                target: /blog
+            remember_me:
+                key: %secret%
+            switch_user: true
+
+    encoders:
+        Yap\UserBundle\Entity\User: sha512
+
+    role_hierarchy:
+        ROLE_DONATOR:     ROLE_USER
+        ROLE_MODO:        ROLE_USER
+        ROLE_ADMIN:       [ROLE_USER, ROLE_MODO]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_MODO, ROLE_DONATOR, ROLE_ALLOWED_TO_SWITCH]
+
+    acl:
+        connection: default

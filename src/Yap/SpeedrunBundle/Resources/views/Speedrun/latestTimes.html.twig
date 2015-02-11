@@ -1,0 +1,66 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	Latest times - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+		<div class="small-12 column">
+			<h2>Latest times submitted:</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Game
+						</th>
+						<th>
+							Level
+						</th>
+						<th>
+							Time
+						</th>
+						<th>
+							Runner
+						</th>
+						<th>
+							Date
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for time in times %}
+				<tr>
+					<th>
+						<a href="{{ path('yapspeedrun_seegame', {'slug': time.linker.game.slug}) }}">{{ time.linker.game.name }}</a>
+					</th>
+					<th>
+						<a href="{{ path('yapspeedrun_seelevel', {'slug': time.linker.game.slug, 'levelSlug': time.level.slug}) }}">{{ time.level.name }}</a>
+					</th>
+					<th>
+						{{ time.time|formatMs }}
+					</th>
+					<th>
+						{{ time.user.username }}
+					</th>
+					<th>
+						{{ time.date|date("d M Y") }}
+					</th>
+				</tr>
+				{% endfor %}				
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+{% endblock %}

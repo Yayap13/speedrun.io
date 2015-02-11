@@ -1,0 +1,29 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ game.name }} - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row" style="padding-bottom: 20px;">
+		<div class="large-12 gameTitle">
+			<h2 class="gameTitleName">{{ game.name }}</h2>
+			<div class="gameTitleImg">
+				<img src="{{ vich_uploader_asset(game, 'imageFile') }}">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-9 column">
+			{{ render(controller("YapSpeedrunBundle:Speedrun:chart", {'linker': app.request.get('linker'), 'level': app.request.get('levelId')})) }}
+		</div>
+		<div class="large-3 column">
+			<div>
+				<h4>Admin Panel</h4>
+				<a href="{{ path('yapspeedrun_editgame', {'slug': game.slug}) }}">Edit {{ game.name }}</a><br />
+				<a href="{{ path('yapspeedrun_createlinker', {'slug': game.slug}) }}">Create a run type</a><br />
+				<a href="{{ path('yapspeedrun_submittime', {'slug': game.slug}) }}">Submit a new Time</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

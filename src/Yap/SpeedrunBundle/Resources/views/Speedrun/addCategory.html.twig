@@ -1,0 +1,16 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	Add a new Category - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<h2>Add a Game</h2>
+	{% include "YapSpeedrunBundle:Speedrun:basicForm.html.twig" %}
+
+	<p>
+		<a href="{{ path('yapspeedrun_index') }}" class="btn btn-default btn-primary btn-sm">
+			<i class="glyphicon glyphicon-icon-chevron-left"></i> Retour à l'accueil
+		</a>
+	</p>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ game.name }} - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+		<div class="large-12 gameTitle">
+			<h2 class="gameTitleName">{{ game.name }}</h2>
+			<div class="gameTitleImg">
+				<img src="{{ vich_uploader_asset(game, 'imageFile') }}">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-3 large-push-9 column">
+			<div>
+				<h4>Run Types:<h4>
+				{% for linker in game.linkers %}
+					<a class="tableLink tableLink-{{ linker.id }}" href="#{{ linker.id }}">{{ linker.name }}</a><br />
+				{% endfor %}
+			</div>
+			<div>
+				<h4>Moderators:</h4>
+				{% set isModo = false %} <!-- Need to be instanciate outside of the loop! -->
+				{% for user in game.users %}
+					{% if user.username == app.user %}
+						{% set isModo = true %}
+					{% endif %}
+					{{ user.username }}<br/>
+				{% endfor %}
+				{% if isModo == true %}
+				<a href="{{ path('yapspeedrun_addmodo', {'slug': game.slug}) }}">Add a Moderator</a>
+				{% endif %}
+			</div>
+			<div>
+				<h4>Option Panel</h4>
+				{% if isModo == true %}
+				<a href="{{ path('yapspeedrun_editgame', {'slug': game.slug}) }}">Edit {{ game.name }}</a><br />
+				<a href="{{ path('yapspeedrun_createlinker', {'slug': game.slug}) }}">Create a run type</a><br />
+				{% endif %}
+				<a href="{{ path('yapspeedrun_submittime', {'slug': game.slug}) }}">Submit a new Time</a>
+			</div>
+		</div>
+		<div class="large-9 large-pull-3 column">
+			{% for linker in game.linkers %}
+				<h3 class="tableTitle tableTitle-{{ linker.id }}">{{ linker.name }}</h3><span class="showMoreBtn"> - More info</span>
+				<div class="showMoreContent">
+					<span>{{ linker.category.name }}:</span> {{ linker.category.description }}
+				</div>
+				{% if linker.times is not empty %}
+					{{ render(controller("YapSpeedrunBundle:Speedrun:CatWr", {'linker': linker.id})) }}
+				{% else %}
+					<div class="table table-{{ linker.id }}" style="box-shadow: none;">
+						No times for this run yet!<br>
+						Be the first to <a href="{{ path('yapspeedrun_submittime', {'slug': game.slug}) }}">submit one!</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% if game.linkers is empty %}
+				<h3>No run types exist</h3>
+				<div>
+					Please add at least one run type.
+				</div>
+			{% endif %}	
+		</div>
+	</div>
+	<!--<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			{% for linker in game.linkers %}
+			<p>{{ linker.name }}</p>
+			{#{{ render(controller("YapSpeedrunBundle:Speedrun:chart", {'linker': 13})) }}#}
+			{% endfor %}
+		</div>
+	</div>-->
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+body { 
+	/*background: rgba(24, 24, 37, 1);
+	/*background: rgba(20, 27, 52, 1);*/
+}
+
+.popover {
+  max-width: 600px;
+  width: auto;
+}
+
+.level-name:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.inner-div{
+   padding-bottom: 45px;
+   display: none;
+ }
+
+ .inputs {
+  display: inline;
+  margin-bottom: 10px;
+ }
+
+ /*.well{
+    background: rgba(24, 24, 37, 0.4);
+}
+[class*="col-"], footer {
+  background-color: lightgreen;
+  border: 2px solid black;
+  border-radius: 6px;
+  line-height: 40px;
+  text-align: center;
+}

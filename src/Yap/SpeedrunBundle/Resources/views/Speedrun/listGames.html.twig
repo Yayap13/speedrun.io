@@ -1,0 +1,33 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Games's list
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+		<div class="small-12 column">
+			<h2>List of Games:</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-9 column">
+			<input placeholder="Filter game by name" id="filterBox" type="text" /> 
+			<ul class="navList">
+			{% for game in listGames %}
+				<li>
+					<a href="{{ path('yapspeedrun_seegame', {'slug': game.slug}) }}">{{ game.name }}</a>
+				<!--	 - Has {{ game.levels|length }} Levels and {{ game.difficulties|length }} Difficulties.
+					 <a href="{{ path('yapspeedrun_editgame', {'slug': game.slug}) }}">Edit</a>-->
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+{% endblock %}

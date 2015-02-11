@@ -1,0 +1,25 @@
+yapblog_index:
+    path: blog/{page}
+    defaults: { _controller: YapBlogBundle:Blog:index, page: 1 }
+    requirements:
+        page: \d*
+
+yapblog_see:
+    path: blog/article/{slug}
+    defaults: { _controller: YapBlogBundle:Blog:see }
+
+yapblog_add:
+    path: blog/add
+    defaults: { _controller: YapBlogBundle:Blog:add }
+
+yapblog_modify:
+    path: blog/modify/{id}
+    defaults: { _controller: YapBlogBundle:Blog:modify }
+    requirements:
+        page: \d+
+
+yapblog_delete:
+    path: blog/delete/{id}
+    defaults: { _controller: YapBlogBundle:Blog:delete }
+    requirements:
+        page: \d+

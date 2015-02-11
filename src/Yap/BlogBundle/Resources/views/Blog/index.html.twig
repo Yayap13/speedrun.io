@@ -1,0 +1,26 @@
+{% extends "YapBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Accueil
+{% endblock %}
+
+{% block yapblog_body %}
+	<h2>Liste des articles</h2>
+	<ul>
+		{% for article in articles %}
+		<li>
+			<a href="{{ path('yapblog_see', {'slug': article.slug}) }}">{{ article.title }}</a> par {{ article.user }}, le {{ article.date|date('d/m/Y') }}
+		</li>
+		{% else %}
+		<li>Pas (encore !) d'articles</li>
+		{% endfor %}
+	</ul>
+	<ul class="pagination">
+		{# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+		{% for p in range(1, nbPage) %}
+			<li{% if p == page %} class="active"{% endif %}>
+				<a href="{{ path('yapblog_index', {'page': p}) }}">{{ p }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

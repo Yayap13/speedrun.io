@@ -1,0 +1,15 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+
+	{% block content %}
+    	{% block fos_user_content %}{% endblock %}
+	{% endblock %}
+
+	</div>
+{% endblock %}

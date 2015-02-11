@@ -1,0 +1,60 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ game.name }} - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+	<div class="row">
+		<div class="large-12 gameTitle">
+			<h2 class="gameTitleName">{{ game.name }}</h2>
+			<div class="gameTitleImg">
+				<img src="{{ vich_uploader_asset(game, 'imageFile') }}">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-8 column">
+			{% if time.video|getHost == "Youtube" %}
+				 <iframe width="640" height="390"src="http://www.youtube.com/embed/{{ time.video|getYoutubeId }}" frameborder="0" style="margin-top: 16px;"></iframe> 
+			{% endif %}
+			{% if time.video|getHost == "Twitch" %}
+				 <object bgcolor='#000000'
+				 		data='http://www.twitch.tv/widgets/archive_embed_player.swf' 
+				        height='390' 
+				        id='clip_embed_player_flash' 
+				        style="margin-top: 16px"
+				        type='application/x-shockwave-flash' 
+				        width='640'> 
+				  <param  name='movie' 
+				          value='http://www.twitch.tv/widgets/archive_embed_player.swf' /> 
+				  <param  name='allowScriptAccess' 
+				          value='always' /> 
+				  <param  name='allowNetworking' 
+				          value='all' /> 
+				  <param  name='allowFullScreen' 
+				          value='true' /> 
+				  <param  name='flashvars' 
+				          value='channel={{ time.video|getTwitchChannel }}&auto_play=false&chapter_id={{ time.video|getTwitchId }}' />
+				</object>
+			{% endif %}
+		</div>
+		<div class="large-4 column">
+			<h4>Author</h4>
+			<div>{{ time.user.username }}</div>
+			{% if time.note is not empty %}
+			<div class="videoNotes">
+				<h4>Notes:</h4>
+				<div>{{ time.note }}</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+{% endblock %}
