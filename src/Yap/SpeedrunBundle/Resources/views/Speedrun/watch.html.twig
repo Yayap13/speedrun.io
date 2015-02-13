@@ -40,14 +40,17 @@
 			{% endif %}
 		</div>
 		<div class="large-4 column">
-			<h4>Author</h4>
-			<div>{{ time.user.username }}</div>
-			{% if time.note is not empty %}
-			<div class="videoNotes">
-				<h4>Notes:</h4>
-				<div>{{ time.note }}</div>
+			<div class="runInfo">
+				<div class="runGame">{{ time.linker.game.name }} - {{ time.level.name }}</div>
+				<div class="runInfoList">
+					<div class="runCat">{{ time.linker.category.name }}</div>
+					<div class="runTime">{{ time.time|formatMs }}<span class="runTimeSaved">-21s</span></div>
+					<div class="runDate">{{ time.date|date("d M Y") }}</div>
+					{% if time.note is not empty %}
+					<div class="runNotes">{{ time.note }}</div>
+					{% endif %}
+				</div>
 			</div>
-			{% endif %}
 		</div>
 	</div>
 
