@@ -178,7 +178,11 @@ class SpeedrunController extends Controller
                             ->getManager()
                             ->getRepository('YapSpeedrunBundle:Time');
         $time = $repository->find($video);
-        return $this->render('YapSpeedrunBundle:Speedrun:watch.html.twig', array('game' => $game, 'time' => $time));
+        
+        $timeManager = $this->container->get('yap_speedrun.timemanager');
+        $timeSaved = $timeManager->getTimeSaved($video);
+
+        return $this->render('YapSpeedrunBundle:Speedrun:watch.html.twig', array('game' => $game, 'time' => $time, 'timeSaved' => $timeSaved));
     }
 
     public function validateGameAction(Game $game)

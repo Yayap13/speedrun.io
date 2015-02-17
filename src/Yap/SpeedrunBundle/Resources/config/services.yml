@@ -8,6 +8,9 @@ services:
             - { name: twig.extension }
     yap_speedrun.ranktester:
         class: Yap\SpeedrunBundle\Ranktester\YapRanktester
+    yap_speedrun.timemanager:
+        class: Yap\SpeedrunBundle\Timemanager\YapTimemanager
+        arguments: ["@doctrine.orm.entity_manager"]
     yap_speedrun.videoresolver:
         class: Yap\SpeedrunBundle\Videoresolver\YapVideoresolver
 #    yap_speedrun.example:

@@ -33,6 +33,11 @@ class SpeedrunExtension extends \Twig_Extension
     }
 	
 	function formatMs($milliseconds) {
+		$positif = true;
+		if($milliseconds < 0) {
+			$milliseconds = -$milliseconds;
+			$positif = false;
+		}
 		$seconds = floor($milliseconds / 1000);
 		$minutes = floor($seconds / 60);
 		$hours = floor($minutes / 60);
@@ -57,7 +62,12 @@ class SpeedrunExtension extends \Twig_Extension
 		}
 		
 		$time = str_replace(' 000ms', '', $time);
-		return rtrim($time, '0');
+		$time = rtrim($time, '0');
+		if($positif) {
+			return $time;
+		} else {
+			return "-".$time;
+		}
 	}
 	
 	public function getHost($url) {

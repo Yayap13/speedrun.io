@@ -44,7 +44,13 @@
 				<div class="runGame">{{ time.linker.game.name }} - {{ time.level.name }}</div>
 				<div class="runInfoList">
 					<div class="runCat">{{ time.linker.category.name }}</div>
-					<div class="runTime">{{ time.time|formatMs }}<span class="runTimeSaved">-21s</span></div>
+					<div class="runTime">{{ time.time|formatMs }}
+						{% if timeSaved < 0 %}
+						<span class="runTimeSaved rts-positif">{{ timeSaved|formatMs }}</span>
+						{% else %}
+						<span class="runTimeSaved rts-negatif">{{ timeSaved|formatMs }}</span>
+						{% endif %}
+					</div>
 					<div class="runDate">{{ time.date|date("d M Y") }}</div>
 					{% if time.note is not empty %}
 					<div class="runNotes">{{ time.note }}</div>
