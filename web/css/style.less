@@ -269,6 +269,7 @@ table.table thead tr .headerSortDown {
 }
 .groupTime {
   display: none;
+  height: 250px;
 }
 
 .runInfo {
@@ -322,6 +323,15 @@ table.table thead tr .headerSortDown {
 }
 .runDate:before {
   content: "Date: ";
+  color: @blue-color;
+  font-style: normal;
+}
+
+.runRunner {
+  font-style: italic;
+}
+.runRunner:before {
+  content: "Runner: ";
   color: @blue-color;
   font-style: normal;
 }
@@ -926,6 +936,8 @@ a:visited {
   width: 160px;
   background-color: #000;
   background-color: hsla(0, 0%, 20%, 1);
+  border: 1px solid lighten(@grey-color, 15%);
+  box-shadow: 0px 0px 3px 0px black;
   color: #fff;
   content: attr(data-tooltip);
   font-size: 14px;

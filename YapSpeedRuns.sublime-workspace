@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tim",
+				"timemanager"
+			],
+			[
+				"yap",
+				"yap_speedrun"
+			],
+			[
 				"mar",
 				"margin-right"
 			],
@@ -471,7 +479,7 @@
 			"file": "src/Yap/SpeedrunBundle/Resources/config/routing.yml",
 			"settings":
 			{
-				"buffer_size": 2556,
+				"buffer_size": 2560,
 				"line_ending": "Unix"
 			}
 		},
@@ -487,7 +495,7 @@
 			"file": "src/Yap/SpeedrunBundle/Controller/SpeedrunController.php",
 			"settings":
 			{
-				"buffer_size": 18134,
+				"buffer_size": 18590,
 				"line_ending": "Windows"
 			}
 		},
@@ -508,18 +516,18 @@
 			}
 		},
 		{
-			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/latestTimes.html.twig",
 			"settings":
 			{
-				"buffer_size": 2073,
+				"buffer_size": 1378,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/latestTimes.html.twig",
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
 			"settings":
 			{
-				"buffer_size": 1293,
+				"buffer_size": 2588,
 				"line_ending": "Windows"
 			}
 		},
@@ -527,7 +535,7 @@
 			"file": "web/css/style.less",
 			"settings":
 			{
-				"buffer_size": 20363,
+				"buffer_size": 20644,
 				"line_ending": "Unix"
 			}
 		},
@@ -536,6 +544,22 @@
 			"settings":
 			{
 				"buffer_size": 2128,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Resources/views/breadcrumb.html.twig",
+			"settings":
+			{
+				"buffer_size": 945,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeProfile.html.twig",
+			"settings":
+			{
+				"buffer_size": 321,
 				"line_ending": "Windows"
 			}
 		}
@@ -572,6 +596,7 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
 		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/listGames.html.twig",
 		"/C/wamp/www/Symfony/app/Resources/views/breadcrumb.html.twig",
 		"/C/wamp/www/Symfony/app/Resources/views/layout.html.twig",
@@ -691,6 +716,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<div class=\"runInfo\">\n				<div class=\"runGame\">{{ time.linker.game.name }} - {{ time.level.name }}</div>\n				<div class=\"runInfoList\">\n					<div class=\"runCat\">{{ time.linker.category.name }}</div>\n					<div class=\"runTime\">{{ time.time|formatMs }}\n						{% if timeSaved < 0 %}\n						<span class=\"runTimeSaved rts-positif tooltip-bottom\" data-tooltip=\"Time saved from the last World Record.\">{{ timeSaved|formatMs }}</span>\n						{% else %}\n						<span class=\"runTimeSaved rts-negatif tooltip-bottom\" data-tooltip=\"Time from the current World Record.\">+ {{ timeSaved|formatMs }}</span>\n						{% endif %}\n					</div>\n					<div class=\"runDate\">{{ time.date|date(\"d M Y\") }}</div>\n					{% if time.note is not empty %}\n					<div class=\"runNotes\">{{ time.note }}</div>\n					{% endif %}\n				</div>\n			</div>",
+			"repository",
+			"f",
+			"find",
+			"findBy(",
+			"findBy",
+			"findB<",
+			"entitymana",
+			"watch",
 			"table",
 			"logo",
 			"return $this->redirect",
@@ -755,7 +789,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -763,15 +797,15 @@
 					"file": "src/Yap/SpeedrunBundle/Resources/config/routing.yml",
 					"settings":
 					{
-						"buffer_size": 2556,
+						"buffer_size": 2560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								801,
-								801
+								2044,
+								2044
 							]
 						],
 						"settings":
@@ -781,7 +815,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 159.0,
+						"translation.y": 913.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -818,15 +852,15 @@
 					"file": "src/Yap/SpeedrunBundle/Controller/SpeedrunController.php",
 					"settings":
 					{
-						"buffer_size": 18134,
+						"buffer_size": 18590,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7184,
-								7075
+								18297,
+								18297
 							]
 						],
 						"settings":
@@ -836,7 +870,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3190.0,
+						"translation.y": 8751.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -853,8 +887,8 @@
 						"selection":
 						[
 							[
-								405,
-								405
+								472,
+								431
 							]
 						],
 						"settings":
@@ -897,18 +931,18 @@
 				},
 				{
 					"buffer": 5,
-					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/latestTimes.html.twig",
 					"settings":
 					{
-						"buffer_size": 2073,
+						"buffer_size": 1378,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1983,
-								1983
+								1165,
+								1165
 							]
 						],
 						"settings":
@@ -917,25 +951,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 533.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/latestTimes.html.twig",
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
 					"settings":
 					{
-						"buffer_size": 1293,
+						"buffer_size": 2588,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1023,
-								999
+								2405,
+								2405
 							]
 						],
 						"settings":
@@ -944,7 +978,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 561.0,
+						"translation.y": 661.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -954,15 +988,15 @@
 					"file": "web/css/style.less",
 					"settings":
 					{
-						"buffer_size": 20363,
+						"buffer_size": 20644,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4906,
-								4906
+								4599,
+								4599
 							]
 						],
 						"settings":
@@ -972,7 +1006,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4896.0,
+						"translation.y": 4560.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1000,6 +1034,60 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 597.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Resources/views/breadcrumb.html.twig",
+					"settings":
+					{
+						"buffer_size": 945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								750,
+								750
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeProfile.html.twig",
+					"settings":
+					{
+						"buffer_size": 321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1071,6 +1159,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 248.0,
+	"side_bar_width": 279.0,
 	"status_bar_visible": true
 }

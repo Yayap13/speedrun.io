@@ -65,7 +65,7 @@ yapspeedrun_levelgraph:
         level: '[a-zA-Z0-9-_\/.]+'
 
 yapspeedrun_seeprofile:
-    path: /profile/{name}
+    path: /profile/{username}
     defaults: { _controller: YapSpeedrunBundle:Speedrun:seeProfile }
 
 _difficultyByGameId:

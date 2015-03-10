@@ -13,6 +13,7 @@
 			</div>
 		</div>
 	</div>
+	{% include 'breadcrumb.html.twig' %}
 	<div class="row">
 		<div class="large-8 column">
 			{% if time.video|getHost == "Youtube" %}
@@ -46,13 +47,15 @@
 					<div class="runCat">{{ time.linker.category.name }}</div>
 					<div class="runTime">{{ time.time|formatMs }}
 						{% if timeSaved < 0 %}
-						<span class="runTimeSaved rts-positif">{{ timeSaved|formatMs }}</span>
+						<span class="runTimeSaved rts-positif tooltip-bottom" data-tooltip="Time saved from the last World Record.">{{ timeSaved|formatMs }}</span>
 						{% else %}
-						<span class="runTimeSaved rts-negatif">{{ timeSaved|formatMs }}</span>
+						<span class="runTimeSaved rts-negatif tooltip-bottom" data-tooltip="Time from the current World Record.">+ {{ timeSaved|formatMs }}</span>
 						{% endif %}
 					</div>
 					<div class="runDate">{{ time.date|date("d M Y") }}</div>
 					{% if time.note is not empty %}
+					<hr>
+					<div class="runRunner"><a href="{{ path('yapspeedrun_seeprofile', {'username': time.user.username}) }}">{{ time.user.username }}</a></div>
 					<div class="runNotes">{{ time.note }}</div>
 					{% endif %}
 				</div>

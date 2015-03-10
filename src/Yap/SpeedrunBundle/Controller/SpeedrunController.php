@@ -500,6 +500,14 @@ class SpeedrunController extends Controller
 
         return $this->render('YapSpeedrunBundle:Speedrun:table.html.twig', array('bestTimes' => $bestTimes, 'linker' => $linker) );
     }
+
+    public function seeProfileAction($username)
+    {
+        $userManager = $this->get('fos_user.user_manager');
+        $user = $userManager->findUserByUsername($username);
+
+        return $this->render('YapSpeedrunBundle:Speedrun:seeProfile.html.twig', array('user' => $user));
+    }
 }
 
 /* To Do

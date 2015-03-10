@@ -45,7 +45,7 @@
 						<a href="{{ path('yapspeedrun_watch', {'slug': time.linker.game.slug, 'video': time.id}) }}">{{ time.time|formatMs }}</a>
 					</th>
 					<th>
-						{{ time.user.username }}
+						<a href="{{ path('yapspeedrun_seeprofile', {'username': time.user.username}) }}">{{ time.user.username }}</a>
 					</th>
 					<th>
 						{{ time.date|date("d M Y") }}
