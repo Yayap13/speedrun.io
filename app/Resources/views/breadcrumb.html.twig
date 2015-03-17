@@ -1,0 +1,25 @@
+<div class="row">
+	<ul class="breadcrumb">
+		<li><a href="{{ path('yapspeedrun_index') }}"><i class="fa fa-home"></i></a></li>
+		<li><a href="{{ path('yapspeedrun_listgames') }}">Games</a></li>
+		{% if level.name is defined %}
+		
+		<li><a href="{{ path('yapspeedrun_seegame', {'slug': game.slug}) }}">{{ game.name }}</a></li>
+		<li class="breadcrumb-active"><a href="#">{{ level.name }}</a></li>
+		
+		{% else %}
+		
+		{% if time.level.name is defined %}
+		
+		<li><a href="{{ path('yapspeedrun_seegame', {'slug': game.slug}) }}">{{ game.name }}</a></li>
+		<li><a href="{{ path('yapspeedrun_seelevel', {'slug': time.linker.game.slug, 'levelSlug': time.level.slug}) }}">{{ time.level.name }}</a></li>
+		<li class="breadcrumb-active"><a href="#">Run infos</a></li>
+		
+		{% else %}
+		
+		<li class="breadcrumb-active"><a href="{{ path('yapspeedrun_seegame', {'slug': game.slug}) }}">{{ game.name }}</a></li>
+		
+		{% endif %}
+		{% endif %}
+	</ul>
+</div>
