@@ -1,0 +1,1164 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tim",
+				"timemanager"
+			],
+			[
+				"yap",
+				"yap_speedrun"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"yaps",
+				"yapspeedrun_watch"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"leve",
+				"levelSlug"
+			],
+			[
+				"level",
+				"levelSlug"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"use",
+				"users"
+			],
+			[
+				"pic",
+				"picEditSend"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"bar",
+				"background"
+			],
+			[
+				"val",
+				"validateGame"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"sho",
+				"showMoreContent"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"sh",
+				"showMoreBtn"
+			],
+			[
+				"war",
+				"warning-color"
+			],
+			[
+				"succ",
+				"success-color"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"table",
+				"tableLink-selected"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"p",
+				"point"
+			],
+			[
+				"date",
+				"datetime"
+			],
+			[
+				"forma",
+				"formatter"
+			],
+			[
+				"ser",
+				"series"
+			],
+			[
+				"arrow",
+				"arrow-size"
+			],
+			[
+				"x",
+				"xArray"
+			],
+			[
+				"ca",
+				"categories"
+			],
+			[
+				"time",
+				"timeArray"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"best",
+				"bestTimes"
+			],
+			[
+				"linker",
+				"linker_id"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"alert",
+				"alert-result"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"en",
+				"entityManager"
+			],
+			[
+				"min",
+				"minutes"
+			],
+			[
+				"u",
+				"user_id"
+			],
+			[
+				"sc",
+				"scripted"
+			],
+			[
+				"se",
+				"segmented"
+			],
+			[
+				"su",
+				"succefully"
+			],
+			[
+				"fa",
+				"false"
+			],
+			[
+				"dif",
+				"difficulty"
+			],
+			[
+				"diff",
+				"difficulties"
+			],
+			[
+				"array_k",
+				"array_key_exists"
+			],
+			[
+				"Form",
+				"FormEvents"
+			],
+			[
+				"game",
+				"game_id"
+			],
+			[
+				"is_nu",
+				"is_numeric"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"crea",
+				"createQueryBuilder"
+			],
+			[
+				"En",
+				"EntityRepository"
+			],
+			[
+				"YapS",
+				"YapSpeedrunBundle"
+			],
+			[
+				"T",
+				"TimeType"
+			],
+			[
+				"diffi",
+				"difficulty"
+			],
+			[
+				"ori",
+				"originalLevels"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"javascri",
+				"javascript"
+			],
+			[
+				"allow",
+				"allow_add"
+			],
+			[
+				"Cat",
+				"CategoryType"
+			],
+			[
+				"Cate",
+				"Category"
+			],
+			[
+				"Ca",
+				"Category"
+			],
+			[
+				"U",
+				"UserBundle"
+			],
+			[
+				"fos",
+				"fos_user_security_login"
+			],
+			[
+				"User",
+				"UserBundle"
+			],
+			[
+				"Se",
+				"SecurityContext"
+			],
+			[
+				"Sec",
+				"Security"
+			],
+			[
+				"SecurityC",
+				"SecurityContext"
+			],
+			[
+				"logi",
+				"login_check"
+			],
+			[
+				"pat",
+				"pattern"
+			],
+			[
+				"pro",
+				"providers"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"con",
+				"constraint"
+			],
+			[
+				"creae",
+				"createView"
+			],
+			[
+				"getM",
+				"getManager"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"create",
+				"createForm"
+			],
+			[
+				"buil",
+				"builder"
+			],
+			[
+				"build",
+				"buildForm"
+			],
+			[
+				"getUpl",
+				"getUploadDir"
+			],
+			[
+				"temp",
+				"tempFilename"
+			],
+			[
+				"tem",
+				"tempFilename"
+			],
+			[
+				"getU",
+				"getUploadRootDir"
+			],
+			[
+				"A",
+				"ArticleType"
+			],
+			[
+				"add",
+				"addSelect"
+			],
+			[
+				"ar",
+				"article"
+			],
+			[
+				"que",
+				"queryBuilder"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"art",
+				"articleInfos"
+			],
+			[
+				"border-b",
+				"border-bottom"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"la",
+				"Lato"
+			],
+			[
+				"article",
+				"articleBox"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"ow",
+				"Oswald"
+			],
+			[
+				"linea",
+				"linear-gradient"
+			],
+			[
+				"b",
+				"background-color"
+			],
+			[
+				"v",
+				"vertical-align"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"top",
+				"topMenu"
+			],
+			[
+				"sa",
+				"sans-serif"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"B",
+				"Blog"
+			],
+			[
+				"Yap",
+				"YapBlogBundle"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/config/routing.yml",
+			"settings":
+			{
+				"buffer_size": 2560,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Yap/BlogBundle/Controller/BlogController.php",
+			"settings":
+			{
+				"buffer_size": 2950,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Controller/SpeedrunController.php",
+			"settings":
+			{
+				"buffer_size": 18590,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeGame.html.twig",
+			"settings":
+			{
+				"buffer_size": 2703,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeLevel.html.twig",
+			"settings":
+			{
+				"buffer_size": 2417,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/latestTimes.html.twig",
+			"settings":
+			{
+				"buffer_size": 1378,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
+			"settings":
+			{
+				"buffer_size": 2588,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "web/css/style.less",
+			"settings":
+			{
+				"buffer_size": 20644,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/test.js",
+			"settings":
+			{
+				"buffer_size": 2128,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Resources/views/breadcrumb.html.twig",
+			"settings":
+			{
+				"buffer_size": 945,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeProfile.html.twig",
+			"settings":
+			{
+				"buffer_size": 321,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"console",
+				"Set Syntax: R Console"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/listGames.html.twig",
+		"/C/wamp/www/Symfony/app/Resources/views/breadcrumb.html.twig",
+		"/C/wamp/www/Symfony/app/Resources/views/layout.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Entity/User.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Linker.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Game.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/breadcrumb.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/table.html.twig",
+		"/C/wamp/www/Symfony/app/Resources/views/loginMenu.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/createLinker.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/LinkerType.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/basicForm.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/submitTime.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/addGameForm.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/editGame.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/addGame.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/GameType.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/addModo.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Controller/SpeedrunController.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/howTo.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/validateGame.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Vote.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Rating.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Ranktester/YapRanktester.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/levelGraph.html.twig",
+		"/C/wamp/www/Symfony/app/Resources/FOSUserBundle/views/layout.html.twig",
+		"/C/wamp/www/Symfony/app/Resources/views/FOSUserBundle/layout.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/layout.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/FOSUserBundle/views/layout.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Entity/Group.php~",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Difficulty.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Thread.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Comment.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/index.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeGame.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/Strategy/ImageCropStrategy.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/Strategy/ImageStrategy.php",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/YapUserBundle.php",
+		"/C/wamp/www/Symfony/app/Resources/views/base.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/chart.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/TimeRepository.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Time.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Level.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/Category.php",
+		"/C/wamp/www/Symfony/web/css/style.css",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/chart2.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/config/services.yml",
+		"/C/wamp/www/Symfony/web/app.php",
+		"/C/wamp/www/Symfony/web/js/test.js",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/TimeType.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/LinkerRepository.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/CategoryType.php",
+		"/C/wamp/www/Symfony/app/config/routing.yml",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/Type/timeType.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/config/routing.yml",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/addCategory.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/DifficultyType.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Form/LevelType.php",
+		"/C/wamp/www/Symfony/app/config/config.yml",
+		"/C/wamp/www/Symfony/app/Resources/views/forms.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/form.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Entity/GameRepository.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Entity/ArticleRepository.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/seegame.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Form/ArticleType.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Entity/Article.php",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/add.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Entity/Group.php",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Entity/UserRepository.php",
+		"/C/wamp/www/Symfony/app/config/security.yml",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Entity/GroupRepository.php",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Entity/Group/fos_group.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Controller/BlogController.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/config/routing.yml",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Resources/views/Speedrun/listgames.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/index.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/SpeedrunBundle/Controller/DefaultController.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Entity/Comment.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/delete.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/modify.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/see.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/layout.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Resources/views/userHelpers.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Controller/UserController.php",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Resources/views/Security/login.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/UserBundle/Controller/SecurityController.php",
+		"/C/Users/Yayap/AppData/Roaming/Sublime Text 2/Packages/User/YAML.sublime-settings",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Validator/AntiFlood.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Validator/AntiFloodValidator.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Form/ImageType.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Form/CategoryType.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Form/ArticleEditType.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/form.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Entity/Image.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/DataFixtures/ORM/Categories.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Entity/Category.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/add.html.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Antispam/YapAntispam.php",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Resources/views/Blog/add.twig",
+		"/C/wamp/www/Symfony/src/Yap/BlogBundle/Controller/DefaultController.php",
+		"/C/wamp/www/design/assets/css/style.css"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<div class=\"runInfo\">\n				<div class=\"runGame\">{{ time.linker.game.name }} - {{ time.level.name }}</div>\n				<div class=\"runInfoList\">\n					<div class=\"runCat\">{{ time.linker.category.name }}</div>\n					<div class=\"runTime\">{{ time.time|formatMs }}\n						{% if timeSaved < 0 %}\n						<span class=\"runTimeSaved rts-positif tooltip-bottom\" data-tooltip=\"Time saved from the last World Record.\">{{ timeSaved|formatMs }}</span>\n						{% else %}\n						<span class=\"runTimeSaved rts-negatif tooltip-bottom\" data-tooltip=\"Time from the current World Record.\">+ {{ timeSaved|formatMs }}</span>\n						{% endif %}\n					</div>\n					<div class=\"runDate\">{{ time.date|date(\"d M Y\") }}</div>\n					{% if time.note is not empty %}\n					<div class=\"runNotes\">{{ time.note }}</div>\n					{% endif %}\n				</div>\n			</div>",
+			"repository",
+			"f",
+			"find",
+			"findBy(",
+			"findBy",
+			"findB<",
+			"entitymana",
+			"watch",
+			"table",
+			"logo",
+			"return $this->redirect",
+			"picedit",
+			"getByGameIdAction",
+			"create",
+			"getrequest",
+			"piced",
+			"yapspeedrun_seegame",
+			"validate",
+			"createlin",
+			"for",
+			"ManyToMany",
+			">\n",
+			"myproject",
+			"tabletitle",
+			"image_file",
+			"game",
+			"@orange-color",
+			"arrow",
+			"bold",
+			"level",
+			"seegame",
+			"jquery",
+			"\n{% block navbarUser %}",
+			"// ajoute un lien « add a level »\n	var $addLevelLink = $('<a href=\"#\" id=\"add_level_link\">Ajouter un level</a>');\n	var $newLinkLi = $('<li></li>').append($addLevelLink);",
+			"createNotFoundExecption",
+			"articles#comments",
+			"#",
+			"href",
+			"/>\n",
+			"readMore",
+			"readmore",
+			"\n			",
+			";\n",
+			"bgAnim",
+			"bfAnim",
+			";\n",
+			">\n",
+			"    0% {\n        background-position: 50% 50%;\n    }",
+			";\n",
+			"%;",
+			"		ad(asdsdasda)\n",
+			"href",
+			"				<li><a href=\"\">Le jeu</a></li>\n",
+			"jeu"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"@logo-color"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/Yap/SpeedrunBundle/Resources/config/routing.yml",
+					"settings":
+					{
+						"buffer_size": 2560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2044,
+								2044
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 913.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Yap/BlogBundle/Controller/BlogController.php",
+					"settings":
+					{
+						"buffer_size": 2950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								793,
+								705
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1134.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/Yap/SpeedrunBundle/Controller/SpeedrunController.php",
+					"settings":
+					{
+						"buffer_size": 18590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18297,
+								18297
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8751.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeGame.html.twig",
+					"settings":
+					{
+						"buffer_size": 2703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								472,
+								431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeLevel.html.twig",
+					"settings":
+					{
+						"buffer_size": 2417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1810,
+								1787
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 866.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/latestTimes.html.twig",
+					"settings":
+					{
+						"buffer_size": 1378,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1165,
+								1165
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 533.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/watch.html.twig",
+					"settings":
+					{
+						"buffer_size": 2588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2405,
+								2405
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 661.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "web/css/style.less",
+					"settings":
+					{
+						"buffer_size": 20644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4599,
+								4599
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4560.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "web/js/test.js",
+					"settings":
+					{
+						"buffer_size": 2128,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								738,
+								738
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 597.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Resources/views/breadcrumb.html.twig",
+					"settings":
+					{
+						"buffer_size": 945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								750,
+								750
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/Yap/SpeedrunBundle/Resources/views/Speedrun/seeProfile.html.twig",
+					"settings":
+					{
+						"buffer_size": 321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP-Twig/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/wamp/www/design/design.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true
+}
