@@ -24,7 +24,6 @@
 		"friendsofsymfony/user-bundle": "~2.0@dev",
 		"ob/highcharts-bundle": "@dev",
         "vich/uploader-bundle": "0.14.*",
-        "friendsofsymfony/comment-bundle": "~2.0",
         "damianociarla/rating-bundle": "~1.1"
     },
     "require-dev": {

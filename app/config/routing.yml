@@ -2,10 +2,6 @@ yap_speedrun:
     resource: "@YapSpeedrunBundle/Resources/config/routing.yml"
     prefix:   /
 
-yap_blogbundle:
-    resource: "@YapBlogBundle/Resources/config/routing.yml"
-    prefix: /
-
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

@@ -76,12 +76,6 @@ _addTime:
     path: /addTime
     defaults: { _controller: YapSpeedrunBundle:Speedrun:addTime }
 
-fos_comment_api:
-    type: rest
-    resource: "@FOSCommentBundle/Resources/config/routing.yml"
-    prefix: /api
-    defaults: { _format: html }
-
 dcs_rating:
     resource: "@DCSRatingBundle/Resources/config/routing.xml"
     prefix:   /
