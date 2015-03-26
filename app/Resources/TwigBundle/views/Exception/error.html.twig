@@ -1,0 +1,18 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} - Error {{ status_code }}
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="small-12 column">
+		<h2>Error {{ status_code }}</h2>
+		<p>{{ status_text }}</p>
+		<div style="width: 350px; margin: auto;">
+			<img style="width: 350px; transform: scaleX(-1); animation: piganim linear 2s infinite;" src="{{ asset('images/pig.svg') }}" alt="pig image">
+		</div>
+	</div>
+</div>
+{% endblock %}

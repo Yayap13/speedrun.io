@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new Yap\SpeedrunBundle\YapSpeedrunBundle(),
 			new Ob\HighchartsBundle\ObHighchartsBundle(),
 	        new Vich\UploaderBundle\VichUploaderBundle(),
-			new JMS\SerializerBundle\JMSSerializerBundle($this),
+			//new JMS\SerializerBundle\JMSSerializerBundle($this),
 			new DCS\RatingBundle\DCSRatingBundle(),
         );
 

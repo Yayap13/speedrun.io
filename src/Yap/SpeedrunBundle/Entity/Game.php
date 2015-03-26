@@ -45,11 +45,6 @@ class Game
     private $visible;
 
     /**
-    * @ORM\ManyToMany(targetEntity="Yap\SpeedrunBundle\Entity\Category", cascade={"persist"})
-    */
-    private $categories;
-
-    /**
     * @ORM\OneToMany(targetEntity="Yap\SpeedrunBundle\Entity\Level", mappedBy="game", cascade={"persist"})
     */
     private $levels;
