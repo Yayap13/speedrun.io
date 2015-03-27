@@ -41,9 +41,7 @@
     <div class="row">Select an Image</div>
     <div class="row">
         <div class="large-8 columns">
-            <label>{{ form.imageFile.vars.label }}
-                {{ form_widget(form.imageFile) }}
-            </label>
+            {{ form_widget(form.imageFile) }}
             {{ form_errors(form.imageFile) }}
         </div>
     </div>
