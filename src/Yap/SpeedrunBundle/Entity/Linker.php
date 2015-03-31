@@ -35,10 +35,16 @@ class Linker
     private $game;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Yap\SpeedrunBundle\Entity\Category")
+    * @ORM\ManyToOne(targetEntity="Yap\SpeedrunBundle\Entity\Category", inversedBy="linkers")
     * @ORM\JoinColumn(nullable=false)
     */
     private $category;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="Yap\SpeedrunBundle\Entity\Platform", inversedBy="linkers")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $platform;
 
     /**
     * @ORM\ManyToOne(targetEntity="Yap\SpeedrunBundle\Entity\Difficulty")
@@ -176,6 +182,29 @@ class Linker
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set platform
+     *
+     * @param \Yap\SpeedrunBundle\Entity\Platform $platform
+     * @return Linker
+     */
+    public function setPlatform(\Yap\SpeedrunBundle\Entity\Platform $platform = null)
+    {
+        $this->platform = $platform;
+
+        return $this;
+    }
+
+    /**
+     * Get platform
+     *
+     * @return \Yap\SpeedrunBundle\Entity\Platform 
+     */
+    public function getPlatform()
+    {
+        return $this->platform;
     }
 
     /**

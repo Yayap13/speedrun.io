@@ -25,6 +25,7 @@ class LinkerType extends AbstractType
             ->add('game', 'entity', array('class' => 'YapSpeedrunBundle:Game', 'property' => 'name', 'label' => 'Game'))
             ->add('difficulty', 'entity', array('class' => 'YapSpeedrunBundle:Difficulty', 'property' => 'name', 'label' => 'Difficulty'))
             ->add('category', 'entity', array('class' => 'YapSpeedrunBundle:Category', 'property' => 'name', 'label' => 'Category'))
+            ->add('platform', 'entity', array('class' => 'YapSpeedrunBundle:Platform', 'property' => 'name', 'label' => 'Platform'))
             ->add('scripted', 'checkbox', array('required' => false, 'label' => 'Scripted'))
             ->add('segmented', 'checkbox', array('required' => false, 'label' => 'Segmented'))
             ->add('tas', 'checkbox', array('required' => false, 'label' => 'Tool Assisted'))

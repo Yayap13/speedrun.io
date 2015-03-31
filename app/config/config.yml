@@ -32,15 +32,6 @@ twig:
         #resources:
             #- "::forms.html.twig"
 
-# DCS Rating Configuration
-dcs_rating:
-    db_driver: orm
-    base_path_to_redirect: / # when the permalink is not configured
-    max_value: 3 # maximum value for the vote (stars displayed)
-    model:
-        rating: Yap\SpeedrunBundle\Entity\Rating
-        vote: Yap\SpeedrunBundle\Entity\Vote
-
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -86,8 +77,8 @@ vich_uploader:
     db_driver: orm
     mappings:
         game_image:
-            uri_prefix:         /symfony/web/uploads/images/game
-            upload_destination: %kernel.root_dir%/../web/uploads/images/game
+            uri_prefix:         /web/uploads/images/game
+            upload_destination: %kernel.root_dir%/web/uploads/images/game
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true

@@ -39,7 +39,10 @@ class LinkerRepository extends EntityRepository
 			->setParameter('version', $linker->getVersion())
 			
 			->andWhere('l.category = :category')
-			->setParameter('category', $linker->getCategory());
+			->setParameter('category', $linker->getCategory())
+
+			->andWhere('l.platform = :platform')
+			->setParameter('platform', $linker->getPlatform());
 
     return $qb->getQuery()->getOneOrNullResult();
 	}

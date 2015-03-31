@@ -5,12 +5,12 @@ namespace Yap\SpeedrunBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Platform
  *
- * @ORM\Table(name="spr_category")
- * @ORM\Entity(repositoryClass="Yap\SpeedrunBundle\Entity\CategoryRepository")
+ * @ORM\Table(name="spr_platform")
+ * @ORM\Entity(repositoryClass="Yap\SpeedrunBundle\Entity\PlatformRepository")
  */
-class Category
+class Platform
 {
     /**
      * @var integer
@@ -36,7 +36,7 @@ class Category
     private $description;
 
     /**
-    * @ORM\OneToMany(targetEntity="Yap\SpeedrunBundle\Entity\Linker", mappedBy="category", cascade={"persist"})
+    * @ORM\OneToMany(targetEntity="Yap\SpeedrunBundle\Entity\Linker", mappedBy="platform", cascade={"persist"})
     */
     private $linkers;
 
@@ -63,7 +63,7 @@ class Category
      * Set name
      *
      * @param string $name
-     * @return Category
+     * @return Platform
      */
     public function setName($name)
     {
@@ -86,7 +86,7 @@ class Category
      * Set description
      *
      * @param string $description
-     * @return Category
+     * @return Platform
      */
     public function setDescription($description)
     {

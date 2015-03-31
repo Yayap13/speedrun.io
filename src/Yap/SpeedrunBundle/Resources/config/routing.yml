@@ -50,6 +50,10 @@ yapspeedrun_addcategory:
     path: /category/add
     defaults: { _controller: YapSpeedrunBundle:Speedrun:addCategory }
 
+yapspeedrun_addplatform:
+    path: /platform/add
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:addPlatform }
+
 yapspeedrun_submittime:
     path: /game/{slug}/submit/time
     defaults: { _controller: YapSpeedrunBundle:Speedrun:submitTime }
@@ -75,7 +79,3 @@ _difficultyByGameId:
 _addTime:
     path: /addTime
     defaults: { _controller: YapSpeedrunBundle:Speedrun:addTime }
-
-dcs_rating:
-    resource: "@DCSRatingBundle/Resources/config/routing.xml"
-    prefix:   /

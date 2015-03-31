@@ -39,6 +39,15 @@
 
     <div class="row">
         <div class="large-8 columns">
+            <label>{{ form.platform.vars.label }}
+                {{ form_widget(form.platform) }}
+            </label>
+            {{ form_errors(form.platform) }}  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-8 columns">
             <label>{{ form.scripted.vars.label }}
                 {{ form_widget(form.scripted) }}
             </label>

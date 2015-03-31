@@ -32,6 +32,14 @@ class User extends BaseUser
     protected $groups;
 
     /**
+    *
+    * @ORM\ManyToMany(targetEntity="Yap\SpeedrunBundle\Entity\Game", cascade={"persist"})
+    * @ORM\JoinTable(name="spr_subscribers_game")
+    *
+    */
+    private $subscribers;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="youtube", type="string", length=255)
@@ -95,5 +103,38 @@ class User extends BaseUser
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    /**
+     * Add subscribers
+     *
+     * @param \Yap\SpeedrunBundle\Entity\Game $subscribers
+     * @return User
+     */
+    public function addSubscriber(\Yap\SpeedrunBundle\Entity\Game $subscribers)
+    {
+        $this->subscribers[] = $subscribers;
+
+        return $this;
+    }
+
+    /**
+     * Remove subscribers
+     *
+     * @param \Yap\SpeedrunBundle\Entity\Game $subscribers
+     */
+    public function removeSubscriber(\Yap\SpeedrunBundle\Entity\Game $subscribers)
+    {
+        $this->subscribers->removeElement($subscribers);
+    }
+
+    /**
+     * Get subscribers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubscribers()
+    {
+        return $this->subscribers;
     }
 }

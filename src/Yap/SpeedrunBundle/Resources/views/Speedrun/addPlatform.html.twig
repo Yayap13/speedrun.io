@@ -1,0 +1,41 @@
+{% extends "YapSpeedrunBundle::layout.html.twig" %}
+
+{% block title %}
+	Add a new Platform - {{ parent() }}
+{% endblock %}
+
+{% block yapspeedrun_body %}
+<div class="row">
+	<div class="large-12 ">
+		<h2>Add a new Platform</h2>
+		{{ form_start(form) }}
+		{{ form_errors(form) }}
+
+		    <div class="row">
+		        <div class="large-8 columns">
+		            <label>{{ form.name.vars.label }}
+		                {{ form_widget(form.name) }}
+		            </label>
+		            {{ form_errors(form.name) }}
+		        </div>
+		    </div>
+
+		    <div class="row">
+		        <div class="large-8 columns">
+		            <label>{{ form.description.vars.label }}
+		                {{ form_widget(form.description) }}
+		            </label>
+		            {{ form_errors(form.description) }}  
+		        </div>
+		    </div>
+		    <button class="btn btn-default"/>Submit<input style="display: none;"type="submit" /></button>
+		{{ form_end(form) }}
+
+		<p>
+			<a href="{{ path('yapspeedrun_index') }}" class="btn btn-default btn-primary btn-sm">
+				<i class="glyphicon glyphicon-icon-chevron-left"></i> Retour à l'accueil
+			</a>
+		</p>
+	</div>
+</div>
+{% endblock %}

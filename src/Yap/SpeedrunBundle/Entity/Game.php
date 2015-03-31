@@ -82,6 +82,7 @@ class Game
 
     /**
     * @ORM\ManyToMany(targetEntity="Yap\UserBundle\Entity\User", cascade={"persist"})
+    * @ORM\JoinTable(name="spr_moderators_game")
     */
     private $users;
 
@@ -159,39 +160,6 @@ class Game
     public function getVisible()
     {
         return $this->visible;
-    }
-
-    /**
-     * Add categories
-     *
-     * @param \Yap\SpeedrunBundle\Entity\Category $categories
-     * @return Game
-     */
-    public function addCategory(\Yap\SpeedrunBundle\Entity\Category $categories)
-    {
-        $this->categories[] = $categories;
-
-        return $this;
-    }
-
-    /**
-     * Remove categories
-     *
-     * @param \Yap\SpeedrunBundle\Entity\Category $categories
-     */
-    public function removeCategory(\Yap\SpeedrunBundle\Entity\Category $categories)
-    {
-        $this->categories->removeElement($categories);
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCategories()
-    {
-        return $this->categories;
     }
 
     /**

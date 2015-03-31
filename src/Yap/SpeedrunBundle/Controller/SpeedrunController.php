@@ -12,12 +12,14 @@ use Zend\Json\Expr;
 
 use Yap\SpeedrunBundle\Entity\Game;
 use Yap\SpeedrunBundle\Entity\Category;
+use Yap\SpeedrunBundle\Entity\Platform;
 use Yap\SpeedrunBundle\Entity\Level;
 use Yap\SpeedrunBundle\Entity\Linker;
 use Yap\SpeedrunBundle\Entity\Time;
 
 use Yap\SpeedrunBundle\Form\GameType;
 use Yap\SpeedrunBundle\Form\CategoryType;
+use Yap\SpeedrunBundle\Form\PlatformType;
 use Yap\SpeedrunBundle\Form\LinkerType;
 use Yap\SpeedrunBundle\Form\TimeType;
 
@@ -191,22 +193,7 @@ class SpeedrunController extends Controller
             return $this->redirect( $this->generateUrl('yapspeedrun_seegame', array('slug' => $game->getSlug())));
         }
 
-        $repository = $this->getDoctrine()->getRepository('YapSpeedrunBundle:Rating');
-        $rating = $repository->isGameValid($game->getId());
-
-        //Need to show the page once to create rating object, so with this no error the first time!
-        if (is_object($rating)) {
-            if (($rating->getNumVotes() > 9) AND ($rating->getRate() > 2.4)) {
-                $this->get('session')->getFlashBag()->add('info', 'This game is valid and now accessible.');
-                
-                $game->setVisible(true);
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($game);
-                $em->flush();
-                
-                return $this->redirect( $this->generateUrl('yapspeedrun_seegame', array('slug' => $game->getSlug())));
-            }
-        }
+        //TODO Add the validation logic
         $this->get('session')->getFlashBag()->add('info', 'This game isn\'t validated yet.');
         return $this->render('YapSpeedrunBundle:Speedrun:validateGame.html.twig', array('game' => $game));
     }
@@ -268,6 +255,31 @@ class SpeedrunController extends Controller
         }
 
         return $this->render('YapSpeedrunBundle:Speedrun:addCategory.html.twig', array('form' => $form->createView()) );
+    }
+
+    public function addPlatformAction()
+    {
+        $platform = new Platform();
+
+        $form = $this->createForm(new PlatformType, $platform);
+
+        $request = $this->get('request');
+
+        if ( $request->getMethod() == 'POST' )
+        {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($platform);
+                $em->flush();
+
+                $this->get('session')->getFlashBag()->add('info', 'Platform succefully added!');
+                return $this->redirect( $this->generateUrl('yapspeedrun_index'));
+            }
+        }
+
+        return $this->render('YapSpeedrunBundle:Speedrun:addPlatform.html.twig', array('form' => $form->createView()) );
     }
 
     public function submitTimeAction(Game $game)
@@ -335,7 +347,7 @@ class SpeedrunController extends Controller
         return new Response($html);
     }
 
-    public function addTimeAction()
+    public function addTimeAction() //TODO rewrite that with a service.
     {
         $request = $this->get('request');
         

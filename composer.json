@@ -23,8 +23,7 @@
 		"stof/doctrine-extensions-bundle": "dev-master",
 		"friendsofsymfony/user-bundle": "~2.0@dev",
 		"ob/highcharts-bundle": "@dev",
-        "vich/uploader-bundle": "0.14.*",
-        "damianociarla/rating-bundle": "~1.1"
+        "vich/uploader-bundle": "0.14.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

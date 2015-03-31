@@ -23,7 +23,6 @@ class AppKernel extends Kernel
 			new Ob\HighchartsBundle\ObHighchartsBundle(),
 	        new Vich\UploaderBundle\VichUploaderBundle(),
 			//new JMS\SerializerBundle\JMSSerializerBundle($this),
-			new DCS\RatingBundle\DCSRatingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

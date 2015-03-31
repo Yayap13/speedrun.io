@@ -32,5 +32,16 @@ monolog:
 assetic:
     use_controller: "%use_assetic_controller%"
 
+#Vich Uploader Configuration
+vich_uploader:
+    db_driver: orm
+    mappings:
+        game_image:
+            uri_prefix:         /symfony/web/uploads/images/game
+            upload_destination: %kernel.root_dir%/../web/uploads/images/game
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+
 #swiftmailer:
 #    delivery_address: me@example.com
