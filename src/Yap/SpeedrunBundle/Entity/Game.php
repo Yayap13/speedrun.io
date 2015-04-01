@@ -92,7 +92,7 @@ class Game
      */
     public function __construct()
     {
-        $this->visible = true;
+        $this->visible = false;
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
         $this->levels = new \Doctrine\Common\Collections\ArrayCollection();
         $this->difficulties = new \Doctrine\Common\Collections\ArrayCollection();
