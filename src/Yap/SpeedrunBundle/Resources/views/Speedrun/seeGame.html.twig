@@ -17,6 +17,18 @@
 	<div class="row">
 		<div class="large-3 large-push-9 column">
 			<div>
+				{% set alreadySub = false %}
+				{% for subscribe in app.user.subscribers %}
+					{% if subscribe == game %}
+						<button id="subscribe" class="btn btn-default"/>Unsubscribe</button>
+						{% set alreadySub = true %}
+					{% endif %}
+				{% endfor %}
+				{% if alreadySub == false %}
+					<button id="subscribe" class="btn btn-default"/>Subscribe</button>
+				{% endif %}
+			</div>
+			<div>
 				<h4>Run Types:<h4>
 				{% for linker in game.linkers %}
 					<a class="tableLink tableLink-{{ linker.id }}" href="#{{ linker.id }}">{{ linker.name }}</a><br />
@@ -81,5 +93,28 @@
 {% block javascripts %}
 
 {{ parent() }}
+
+<script type="text/javascript">
+	$('#subscribe').click(function() {
+		$(this).addClass('loader');
+		$(this).html('Working. . .');
+		$.ajax({
+			url: Routing.generate('_subscriptionManager', { slug: "{{ game.slug }}" }),
+			success: function(data) {
+				if (data.validate == 'subscribed') {
+					$('#subscribe').removeClass('loader');
+					$('#subscribe').html('Unsubscribe');
+				} else if (data.validate == 'unsubscribed') {
+					$('#subscribe').removeClass('loader');
+					$('#subscribe').html('Subscribe');
+				}
+			},
+			error: function(data) {
+				$('#subscribe').removeClass('loader');
+				$('#subscribe').html('Error');
+			}
+		})
+	});
+</script>
 
 {% endblock %}

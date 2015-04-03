@@ -17,8 +17,7 @@
 		<div class="large-3 large-push-9 column">
 			<div>
 				<h4>Validation process:<h4>
-				<span class="validateGame">Give 3 stars if you think that the game's <a href="#" class="tooltip-bottom" data-tooltip="This needs to be the correct and entire name, not just an abreviation.">name</a>, <a href="#" class="tooltip-bottom" data-tooltip="The image must correspond to the game and must integrate the style.">image</a> and <a href="#" class="tooltip-bottom" data-tooltip="All levels must be there and in the correct order. The last level need to be 'full game'.">levels</a> are correct!
-				</span>
+				<button id="validate" class="btn btn-default"/>Validate</button>
 			</div>
 			<div>
 				<h4>Admin Panel</h4>
@@ -35,14 +34,6 @@
 			</ol>
 		</div>
 	</div>
-	<!--<div class="row">
-		<div class="col-md-offset-2 col-md-8">
-			{% for linker in game.linkers %}
-			<p>{{ linker.name }}</p>
-			{#{{ render(controller("YapSpeedrunBundle:Speedrun:chart", {'linker': 13})) }}#}
-			{% endfor %}
-		</div>
-	</div>-->
 
 {% endblock %}
 
@@ -51,7 +42,25 @@
 {{ parent() }}
 
 <script type="text/javascript">
-	$('.example').popover();
+	$('#validate').click(function() {
+		$(this).addClass('loader');
+		$(this).html('Working. . .');
+		$.ajax({
+			url: $.attr('href'),
+			success: function(data) {
+				if (data.validate == true) {
+					$('#validate').removeClass('loader');
+					$('#validate').html('Game validated');
+				} else {
+					$('#validate').removeClass('loader');
+					$('#validate').html('Error');
+				}
+			},
+			complete: function(){
+				document.location.reload(); 
+			}
+		})
+	});
 </script>
 
 {% endblock %}

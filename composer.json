@@ -22,8 +22,10 @@
 		"doctrine/data-fixtures": "@dev",
 		"stof/doctrine-extensions-bundle": "dev-master",
 		"friendsofsymfony/user-bundle": "~2.0@dev",
+		"friendsofsymfony/jsrouting-bundle": "dev-master",
 		"ob/highcharts-bundle": "@dev",
-        "vich/uploader-bundle": "0.14.*"
+        "vich/uploader-bundle": "0.14.*",
+        "jms/serializer-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -22,7 +22,8 @@ class AppKernel extends Kernel
             new Yap\SpeedrunBundle\YapSpeedrunBundle(),
 			new Ob\HighchartsBundle\ObHighchartsBundle(),
 	        new Vich\UploaderBundle\VichUploaderBundle(),
-			//new JMS\SerializerBundle\JMSSerializerBundle($this),
+	        new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+			new JMS\SerializerBundle\JMSSerializerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

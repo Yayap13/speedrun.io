@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Ob\HighchartsBundle\Highcharts\Highchart;
 use Zend\Json\Expr;
@@ -187,22 +189,37 @@ class SpeedrunController extends Controller
         return $this->render('YapSpeedrunBundle:Speedrun:watch.html.twig', array('game' => $game, 'time' => $time, 'timeSaved' => $timeSaved));
     }
 
-    public function validateGameAction(Game $game)
+    public function validateGameAction(Game $game, Request $request)
     {
         if ($game->getVisible() == true) {
             return $this->redirect( $this->generateUrl('yapspeedrun_seegame', array('slug' => $game->getSlug())));
         }
 
-        //TODO Add the validation logic
-        $this->get('session')->getFlashBag()->add('info', 'This game isn\'t validated yet.');
-        return $this->render('YapSpeedrunBundle:Speedrun:validateGame.html.twig', array('game' => $game));
+        if($request->isXmlHttpRequest()) {
+            $response = new JsonResponse();
+            $ranktester = $this->container->get('yap_speedrun.ranktester');
+            if ($ranktester->isModo($this->getUser())) {
+                $game->setVisible(true);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($game);
+                $em->flush();
+                return $response->setData(array('validate' => true));
+            } else {
+                //TODO Add the validation logic for non-modo
+                return $response->setData(array('validate' => false));
+            }
+        } else {
+            $this->get('session')->getFlashBag()->add('info', 'This game isn\'t validated yet.');
+            return $this->render('YapSpeedrunBundle:Speedrun:validateGame.html.twig', array('game' => $game));
+        }
+        
     }
 
     public function addModoAction(Game $game, $user)
     {
         $ranktester = $this->container->get('yap_speedrun.ranktester');
         
-        if ($ranktester->isModo($this->getUser(), $game->getUsers()) == false) {
+        if ($ranktester->isGameModo($this->getUser(), $game->getUsers()) == false) {
           throw new \Exception('You aren\'t allowed to access this page!');
         }
 
@@ -412,6 +429,72 @@ class SpeedrunController extends Controller
 
         $html ='empty';
         return new Response($html);
+    }
+
+    public function subscriptionManagerAction(Game $game, Request $request)
+    {
+       if($request->isXmlHttpRequest()) {
+            
+            $user = $this->getUser();
+            $subscribers = $user->getSubscribers();
+            $alreadySub = false;
+            foreach($subscribers as $subscriber) {
+                if($subscriber == $game) {
+                    $alreadySub = true;
+                }
+            }
+
+            if($alreadySub) {
+                $user->removeSubscriber($game);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                
+                $response = new JsonResponse();
+                return $response->setData(array('validate' => 'unsubscribed'));
+            } else {
+                $user->addSubscriber($game);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                
+                $response = new JsonResponse();
+                return $response->setData(array('validate' => 'subscribed'));
+            }
+        }
+        
+    }
+
+    public function subscribeAction(Game $game, Request $request)
+    {
+       if($request->isXmlHttpRequest()) {
+            
+            $user = $this->getUser();
+            $user->addSubscriber($game);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            
+            $response = new JsonResponse();
+            return $response->setData(array('validate' => true));
+        }
+        
+    }
+
+    public function unsubscribeAction(Game $game, Request $request)
+    {
+       if($request->isXmlHttpRequest()) {
+            
+            $user = $this->getUser();
+            $user->removeSubscriber($game);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            
+            $response = new JsonResponse();
+            return $response->setData(array('validate' => true));
+        }
+        
     }
 
     public function levelGraphAction(Game $game, $linker, $level)
