@@ -81,6 +81,8 @@ _difficultyByGameId:
 _addTime:
     path: /addTime
     defaults: { _controller: YapSpeedrunBundle:Speedrun:addTime }
+    options:
+        expose: true
 
 _subscriptionManager:
     path: /subscribeManager/{slug}

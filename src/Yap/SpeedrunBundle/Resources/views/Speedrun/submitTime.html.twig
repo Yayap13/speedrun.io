@@ -125,7 +125,7 @@ $( document ).ready(function() {
      $.ajax({
           type: "POST",
           data: {linker: linker, level: level, time: time, video: video, note: note},
-          url:"/Symfony/web/app_dev.php/addTime",
+          url: Routing.generate('_addTime'),
           success: function (data) {
             if(data==200){
               $('#'+ids).before('<div class="alert alert-success" role="alert">Time added!</div>');
