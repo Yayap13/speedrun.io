@@ -41,10 +41,13 @@
 					{% if user.username == app.user %}
 						{% set isModo = true %}
 					{% endif %}
-					{{ user.username }}<br/>
+					<span>{{ user.username }}<button class="removeModerator" pseudo="{{ user.username }}">X</button></span><br/>
 				{% endfor %}
 				{% if isModo == true %}
-				<a href="{{ path('yapspeedrun_addmodo', {'slug': game.slug}) }}">Add a Moderator</a>
+				<form>
+					<input id="moderatorPseudo" type="text" placeholder="New moderator"></input>
+					<button id="addModerator" class="btn btn-default"/>Add</button>
+				</form>
 				{% endif %}
 			</div>
 			<div>
@@ -112,6 +115,50 @@
 			error: function(data) {
 				$('#subscribe').removeClass('loader');
 				$('#subscribe').html('Error');
+			}
+		})
+	});
+
+	$('#addModerator').click(function( event ) {
+		event.preventDefault();
+		$(this).addClass('loader');
+		$(this).html('Working. . .');
+		$.ajax({
+			url: Routing.generate('_addmodo', { slug: "{{ game.slug }}", user: ""+$('#moderatorPseudo').val()+"" }),
+			success: function(data) {
+				if (data.validate == true) {
+					$('#addModerator').removeClass('loader');
+					$('#addModerator').html('Moderator Added!');
+				} else if (data.validate == 'wrongUser') {
+					$('#addModerator').removeClass('loader');
+					$('#addModerator').html('User does not exist');
+				}
+			},
+			error: function(data) {
+				$('#addModerator').removeClass('loader');
+				$('#addModerator').html('Error');
+			}
+		})
+	});
+
+	$('#removeModerator').click(function( event ) {
+		event.preventDefault();
+		$(this).addClass('loader');
+		$(this).html('Working. . .');
+		$.ajax({
+			url: Routing.generate('_removemodo', { slug: "{{ game.slug }}", user: ""+$('#moderatorPseudo').val()+"" }),
+			success: function(data) {
+				if (data.validate == true) {
+					$('#removeModerator').removeClass('loader');
+					$('#removeModerator').html('Moderator Added!');
+				} else if (data.validate == 'wrongUser') {
+					$('#removeModerator').removeClass('loader');
+					$('#removeModerator').html('User does not exist');
+				}
+			},
+			error: function(data) {
+				$('#removeModerator').removeClass('loader');
+				$('#removeModerator').html('Error');
 			}
 		})
 	});

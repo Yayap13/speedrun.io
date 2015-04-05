@@ -215,26 +215,54 @@ class SpeedrunController extends Controller
         
     }
 
-    public function addModoAction(Game $game, $user)
+    public function addModoAction(Game $game, $user, Request $request)
     {
-        $ranktester = $this->container->get('yap_speedrun.ranktester');
-        
-        if ($ranktester->isGameModo($this->getUser(), $game->getUsers()) == false) {
-          throw new \Exception('You aren\'t allowed to access this page!');
-        }
+        if($request->isXmlHttpRequest()) {
+            $response = new JsonResponse();
+            $ranktester = $this->container->get('yap_speedrun.ranktester');
+            
+            if ($ranktester->isGameModo($this->getUser(), $game->getUsers()) == false) {
+              return $response->setData(array('validate' => 'noModerator'));
+            }
 
-        if(isset($user)) {
-            $userManager = $this->container->get('fos_user.user_manager');
-            $user = $userManager->findUserByUsername($user);
-            $game->addUser($user);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($game);
-            $em->flush();
+            if(isset($user)) {
+                $userManager = $this->container->get('fos_user.user_manager');
+                $user = $userManager->findUserByUsername($user);
+                if($user == null) {
+                    return $response->setData(array('validate' => 'wrongUser'));
+                }
+                $game->addUser($user);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($game);
+                $em->flush();
+                return $response->setData(array('validate' => true));
+            }
         }
-        $userManager = $this->get('fos_user.user_manager');
-        $users = $userManager->findUsers();
+    }
 
-        return $this->render('YapSpeedrunBundle:Speedrun:addModo.html.twig', array('game' => $game, 'users' => $users));
+    public function removeModoAction(Game $game, $user, Request $request)
+    {
+        if($request->isXmlHttpRequest()) {
+            $response = new JsonResponse();
+            $ranktester = $this->container->get('yap_speedrun.ranktester');
+            
+            if ($ranktester->isGameModo($this->getUser(), $game->getUsers()) == false) {
+              return $response->setData(array('validate' => 'noModerator'));
+            }
+
+            if(isset($user)) {
+                $userManager = $this->container->get('fos_user.user_manager');
+                $user = $userManager->findUserByUsername($user);
+                if($user == null) {
+                    return $response->setData(array('validate' => 'wrongUser'));
+                }
+                $game->removeUser($user);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($game);
+                $em->flush();
+                return $response->setData(array('validate' => true));
+            }
+        }
     }
 
     public function validateListGamesAction()

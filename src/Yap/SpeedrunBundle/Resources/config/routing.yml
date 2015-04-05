@@ -36,10 +36,6 @@ yapspeedrun_validategame:
     options:
         expose: true
 
-yapspeedrun_addmodo:
-    path: /game/{slug}/addModo/{user}
-    defaults: { _controller: YapSpeedrunBundle:Speedrun:addModo, user: null }
-
 yapspeedrun_listgames:
     path: /games
     defaults: { _controller: YapSpeedrunBundle:Speedrun:listGames }
@@ -99,5 +95,17 @@ _subscribe:
 _unsubscribe:
     path: /unsubscribe/{slug}
     defaults: { _controller: YapSpeedrunBundle:Speedrun:unsubscribe }
+    options:
+        expose: true
+
+_addmodo:
+    path: /game/{slug}/addModo/{user}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:addModo }
+    options:
+        expose: true
+
+_addmodo:
+    path: /game/{slug}/removeModo/{user}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:removeModo }
     options:
         expose: true
