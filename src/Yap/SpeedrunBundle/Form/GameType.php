@@ -17,6 +17,7 @@ class GameType extends AbstractType
         $builder
             ->add('name',       'text', array('label' => 'Name'))
             //->add('visible',    'checkbox', array('required' => false))
+            ->add('official',    'checkbox', array('label' => 'Official leaderboard'))
             ->add('levels',     'collection', array('type' => new LevelType(), 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false))
             ->add('difficulties','collection', array('type' => new DifficultyType(), 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false))
             ->add('imageFile',      'file', array('required' => false))

@@ -13,6 +13,15 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="large-12 gameTitle">
+			{% if game.official == 1 %}
+			<span style="color:green;">This is the Official Leaderboard!</span>
+			{% else %}
+			<span style="color:red;">This isn't the Official Leaderboard.. :(</span>
+			{% endif %}
+		</div>
+	</div>
 	{% include 'breadcrumb.html.twig' %}
 	<div class="row">
 		<div class="large-3 large-push-9 column">
@@ -41,7 +50,7 @@
 					{% if user.username == app.user %}
 						{% set isModo = true %}
 					{% endif %}
-					<span>{{ user.username }}<button class="removeModerator" pseudo="{{ user.username }}">X</button></span><br/>
+					<span>{{ user.username }} <span style="color:red; cursor:pointer;" class="removeModerator" pseudo="{{ user.username }}">remove</span></span><br/>
 				{% endfor %}
 				{% if isModo == true %}
 				<form>
@@ -141,24 +150,24 @@
 		})
 	});
 
-	$('#removeModerator').click(function( event ) {
+	$('.removeModerator').click(function( event ) {
 		event.preventDefault();
-		$(this).addClass('loader');
 		$(this).html('Working. . .');
+		var thisEl = $(this);
 		$.ajax({
-			url: Routing.generate('_removemodo', { slug: "{{ game.slug }}", user: ""+$('#moderatorPseudo').val()+"" }),
+			url: Routing.generate('_removemodo', { slug: "{{ game.slug }}", user: ""+$(this).attr('pseudo')+"" }),
 			success: function(data) {
 				if (data.validate == true) {
-					$('#removeModerator').removeClass('loader');
-					$('#removeModerator').html('Moderator Added!');
+					thisEl.removeClass('loader');
+					thisEl.html('Moderator Deleted!');
 				} else if (data.validate == 'wrongUser') {
-					$('#removeModerator').removeClass('loader');
-					$('#removeModerator').html('User does not exist');
+					thisEl.removeClass('loader');
+					thisEl.html('User does not exist');
 				}
 			},
 			error: function(data) {
-				$('#removeModerator').removeClass('loader');
-				$('#removeModerator').html('Error');
+				thisEl.removeClass('loader');
+				thisEl.html('Error');
 			}
 		})
 	});

@@ -11,6 +11,15 @@
     </div>
 
     <div class="row">
+        <div class="large-8 columns">
+            <label>{{ form.official.vars.label }}
+                {{ form_widget(form.official) }}
+            </label>
+            {{ form_errors(form.official) }}
+        </div>
+    </div>
+
+    <div class="row">
     <label>List of Levels</label>
         <ul class="levels large-8 columns" data-prototype="{{ form_widget(form.levels.vars.prototype)|e }}">
     		{# itère sur chaque level existant et affiche son unique champ : name #}

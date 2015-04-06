@@ -45,6 +45,11 @@ class Game
     private $visible;
 
     /**
+    * @ORM\Column(name="official", type="boolean")
+    */
+    private $official;
+
+    /**
     * @ORM\OneToMany(targetEntity="Yap\SpeedrunBundle\Entity\Level", mappedBy="game", cascade={"persist"})
     */
     private $levels;
@@ -160,6 +165,29 @@ class Game
     public function getVisible()
     {
         return $this->visible;
+    }
+
+    /**
+     * Set official
+     *
+     * @param boolean $official
+     * @return Game
+     */
+    public function setOfficial($official)
+    {
+        $this->official = $official;
+
+        return $this;
+    }
+
+    /**
+     * Get official
+     *
+     * @return boolean 
+     */
+    public function getOfficial()
+    {
+        return $this->official;
     }
 
     /**

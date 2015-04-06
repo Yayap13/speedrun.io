@@ -104,7 +104,7 @@ _addmodo:
     options:
         expose: true
 
-_addmodo:
+_removemodo:
     path: /game/{slug}/removeModo/{user}
     defaults: { _controller: YapSpeedrunBundle:Speedrun:removeModo }
     options:
