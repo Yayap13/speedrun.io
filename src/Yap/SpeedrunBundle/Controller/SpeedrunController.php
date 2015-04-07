@@ -469,6 +469,7 @@ class SpeedrunController extends Controller
             foreach($subscribers as $subscriber) {
                 if($subscriber == $game) {
                     $alreadySub = true;
+                    break;
                 }
             }
 
@@ -521,6 +522,44 @@ class SpeedrunController extends Controller
             
             $response = new JsonResponse();
             return $response->setData(array('validate' => true));
+        }
+        
+    }
+
+    public function followingManagerAction($user, Request $request)
+    {
+       if($request->isXmlHttpRequest()) {
+            
+            $userManager = $this->get('fos_user.user_manager');
+            $user = $userManager->findUserByUsername($user);
+            $realUser = $this->getUser();
+            if($user == $realUser) { return; }
+            $followers = $realUser->getFollowers();
+            $alreadyFollow = false;
+            foreach($followers as $follower) {
+                if($follower == $user) {
+                    $alreadySub = true;
+                    break;
+                }
+            }
+
+            if($alreadyFollow) {
+                $realUser->removeFollower($user);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                
+                $response = new JsonResponse();
+                return $response->setData(array('validate' => 'unfollowed'));
+            } else {
+                $realUser->addFollower($user);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                
+                $response = new JsonResponse();
+                return $response->setData(array('validate' => 'following'));
+            }
         }
         
     }

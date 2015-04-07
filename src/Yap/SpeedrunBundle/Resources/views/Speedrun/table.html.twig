@@ -26,6 +26,18 @@
 			</th>
 			<th>
 				{{ time.user }}
+				{% if time.user != app.user %}
+					{% set alreadyFollow = false %}
+					{% for follower in app.user.followers %}
+						{% if follower == time.user %}
+							<span class="follow" user="{{ time.user }}">Unfollow</span>
+							{% set alreadyFollow = true %}
+						{% endif %}
+					{% endfor %}
+					{% if alreadyFollow == false %}
+						<span class="follow" user="{{ time.user }}">Follow</span>
+					{% endif %}
+				{% endif %}
 			</th>
 			<th>
 				{{ time.time|secToHms }}

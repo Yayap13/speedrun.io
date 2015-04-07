@@ -40,6 +40,14 @@ class User extends BaseUser
     private $subscribers;
 
     /**
+    *
+    * @ORM\ManyToMany(targetEntity="Yap\UserBundle\Entity\User", cascade={"persist"})
+    * @ORM\JoinTable(name="spr_followers_user")
+    *
+    */
+    private $followers;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="youtube", type="string", length=255)
@@ -136,5 +144,38 @@ class User extends BaseUser
     public function getSubscribers()
     {
         return $this->subscribers;
+    }
+
+    /**
+     * Add followers
+     *
+     * @param \Yap\UserBundle\Entity\User $followers
+     * @return User
+     */
+    public function addFollower(\Yap\UserBundle\Entity\User $followers)
+    {
+        $this->followers[] = $followers;
+
+        return $this;
+    }
+
+    /**
+     * Remove followers
+     *
+     * @param \Yap\UserBundle\Entity\User $followers
+     */
+    public function removeFollower(\Yap\UserBundle\Entity\User $followers)
+    {
+        $this->followers->removeElement($followers);
+    }
+
+    /**
+     * Get followers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFollowers()
+    {
+        return $this->followers;
     }
 }

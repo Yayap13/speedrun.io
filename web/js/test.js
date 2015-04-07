@@ -75,4 +75,23 @@ $( document ).ready(function() {
 	//flashbag notification auto hide
 	$('#flashbag').delay(4000).slideUp();
 
+	$('.follow').click(function( event ) {
+		event.preventDefault();
+		$(this).html('Working. . .');
+		var thisEl = $(this);
+		$.ajax({
+			url: Routing.generate('_followingManager', { user: ""+thisEl.attr('user')+"" }),
+			success: function(data) {
+				if (data.validate == 'following') {
+					thisEl.html('Unfollow');
+				} else if (data.validate == 'unfollowed') {
+					thisEl.html('Follow');
+				}
+			},
+			error: function(data) {
+				thisEl.html('Error');
+			}
+		})
+	});
+
 });
