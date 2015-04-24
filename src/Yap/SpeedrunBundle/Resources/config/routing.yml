@@ -104,6 +104,12 @@ _followingManager:
     options:
         expose: true
 
+_verifyTime:
+    path: /game/{slug}/verifyTime/{time}
+    defaults: { _controller: YapSpeedrunBundle:Speedrun:verifyTime }
+    options:
+        expose: true
+
 _addmodo:
     path: /game/{slug}/addModo/{user}
     defaults: { _controller: YapSpeedrunBundle:Speedrun:addModo }

@@ -73,6 +73,13 @@ class Time
     private $oldwr;
 
     /**
+    * @var boolean
+    *
+    * @ORM\Column(name="verified", type="boolean")
+    */
+    private $verified;
+
+    /**
     * @ORM\ManyToOne(targetEntity="Yap\SpeedrunBundle\Entity\Level", inversedBy="levels")
     * @ORM\JoinColumn(nullable=false)
     */
@@ -93,6 +100,7 @@ class Time
     public function __construct()
     {
         $this->date = new \DateTime();
+        $this->verified = false;
     }
 
     /**
@@ -334,5 +342,28 @@ class Time
     public function getOldwr()
     {
         return $this->oldwr;
+    }
+
+    /**
+     * Set verified
+     *
+     * @param boolean $verified
+     * @return Time
+     */
+    public function setVerified($verified)
+    {
+        $this->verified = $verified;
+
+        return $this;
+    }
+
+    /**
+     * Get verified
+     *
+     * @return boolean 
+     */
+    public function getVerified()
+    {
+        return $this->verified;
     }
 }

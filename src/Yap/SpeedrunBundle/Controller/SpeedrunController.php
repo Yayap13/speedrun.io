@@ -396,67 +396,22 @@ class SpeedrunController extends Controller
     {
         $request = $this->get('request');
         
-        if (($request->request->get('time') != null) AND ($request->request->get('video') != null)) {
+        $timemanager = $this->container->get('yap_speedrun.timemanager');
+
+        $time = $request->request->get('time');
+        $linker = $request->request->get('linker');
+        $level = $request->request->get('level');
+        $video = $request->request->get('video');
+        $note = $request->request->get('note');
         
-            $time = new Time();
-
-            $linker = $this->getDoctrine()
-                           ->getRepository('YapSpeedrunBundle:Linker')
-                           ->find($request->request->get('linker'));
-
-            $level = $this->getDoctrine()
-                          ->getRepository('YapSpeedrunBundle:Level')
-                          ->find($request->request->get('level'));
-
-            $time->setTime($request->request->get('time'));
-            $time->setVideo($request->request->get('video'));
-            $time->setNote($request->request->get('note'));
-
-            $time->setLinker($linker);
-            $time->setLevel($level);
-            $time->setUser($this->getUser());
-
-            $repository = $this->getDoctrine()->getRepository('YapSpeedrunBundle:Time');
-            $oldTime = $repository->getOldTime($request->request->get('linker'), $request->request->get('level'), $this->getUser()->getId());
-            $oldWrTime = $repository->getOldWrTime($request->request->get('linker'), $request->request->get('level'));
-
-            $em = $this->getDoctrine()->getManager();
-
-            if ($oldTime != null) {
-                if ($oldTime->getTime() > $request->request->get('time')) {
-                    $oldTime->setPb(false);
-                    $time->setPb(true);
-                    $em->persist($oldTime);
-                } else {
-                    $time->setPb(false);
-                }
-            } else {
-                $time->setPb(true);
-            }
-
-            if ($oldWrTime != null) {
-                if ($oldWrTime->getTime() > $request->request->get('time')) {
-                    $time->setWr(true);
-                    $time->setOldWr(true);
-                    $oldWrTime->setWr(false);
-                } else {
-                    $time->setWr(false);
-                    $time->setOldWr(false);
-                }
-            } else {
-                $time->setWr(true);
-                $time->setOldWr(true);
-            }
-
-            $em->persist($time);
-            $em->flush();
-
-            $html = '200';
-            return new Response($html);
+        if($timemanager->addUnverifiedTime($time, $linker, $level, $video, $note, $this->getUser())) {
+            $response = new JsonResponse();
+            return $response->setData(array('validate' => true));
+        } else {
+            $response = new JsonResponse();
+            return $response->setData(array('validate' => false));
         }
 
-        $html ='empty';
-        return new Response($html);
     }
 
     public function subscriptionManagerAction(Game $game, Request $request)
@@ -538,7 +493,7 @@ class SpeedrunController extends Controller
             $alreadyFollow = false;
             foreach($followers as $follower) {
                 if($follower == $user) {
-                    $alreadySub = true;
+                    $alreadyFollow = true;
                     break;
                 }
             }
@@ -562,6 +517,29 @@ class SpeedrunController extends Controller
             }
         }
         
+    }
+
+    public function verifyTimeAction(Game $game, $time, Request $request) {
+        if($request->isXmlHttpRequest()) {
+            
+            $repository = $this->getDoctrine()
+                            ->getManager()
+                            ->getRepository('YapSpeedrunBundle:Time');
+
+            $timeObj = $repository->find($time);
+                
+            $ranktester = $this->container->get('yap_speedrun.ranktester');
+
+            if ($ranktester->isModo($this->getUser(), $game->getUsers()) == false) {
+                throw new \Exception('You aren\'t allowed to access this page!');
+            } else {
+                $timemanager = $this->container->get('yap_speedrun.timemanager');
+                $timemanager->validateTime($timeObj);
+
+                $response = new JsonResponse();
+                return $response->setData(array('validate' => true));
+            }
+        }
     }
 
     public function levelGraphAction(Game $game, $linker, $level)

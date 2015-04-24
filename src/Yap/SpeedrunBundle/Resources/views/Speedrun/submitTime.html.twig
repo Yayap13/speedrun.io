@@ -127,7 +127,7 @@ $( document ).ready(function() {
           data: {linker: linker, level: level, time: time, video: video, note: note},
           url: Routing.generate('_addTime'),
           success: function (data) {
-            if(data==200){
+            if(data.validate == true){
               $('#'+ids).before('<div class="alert alert-success" role="alert">Time added!</div>');
               $('#'+ids).html('Add <span class="glyphicon glyphicon-plus"></span>');
               $('#'+ids).removeClass('loader');

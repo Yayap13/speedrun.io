@@ -40,6 +40,16 @@
 				</object>
 			{% endif %}
 		</div>
+		{% if not time.verified %}
+		<div class="large-4 column">
+			<div class="runInfo">
+				<div class="runGame">Run verification</div>
+				<div class="runInfoList">
+					Moderator Validation: <i class="fa fa-warning timeVerification" game="{{ time.level.game.slug }}" time="{{ time.id }}" style="color: tomato; cursor: pointer;"></i>
+				</div>
+			</div>
+		</div>
+		{% endif %}
 		<div class="large-4 column">
 			<div class="runInfo">
 				<div class="runGame">{{ time.linker.game.name }} - {{ time.level.name }}</div>

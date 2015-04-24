@@ -94,4 +94,28 @@ $( document ).ready(function() {
 		})
 	});
 
+	$('.timeVerification').click(function( event ) {
+		event.preventDefault();
+		$(this).removeClass('fa-warning');
+		$(this).addClass('fa-spinner fa-spin');
+		var thisEl = $(this);
+		$.ajax({
+			url: Routing.generate('_verifyTime', { slug: ""+$(this).attr('game')+"", time: ""+$(this).attr('time')+"" }),
+			success: function(data) {
+				if (data.validate == true) {
+					thisEl.removeClass('fa-spinner fa-spin');
+					thisEl.addClass('fa-check');
+					thisEl.css('color', 'green');
+				} else if (data.validate == false) {
+					thisEl.removeClass('fa-spinner fa-spin');
+					thisEl.addClass('fa-warning');
+				}
+			},
+			error: function(data) {
+				thisEl.removeClass('fa-spinner fa-spin');
+				thisEl.addClass('fa-warning');
+			}
+		})
+	});
+
 });

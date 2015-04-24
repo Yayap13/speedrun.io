@@ -26,7 +26,7 @@
 			</th>
 			<th>
 				{{ time.user }}
-				{% if time.user != app.user %}
+				{% if time.user != app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 					{% set alreadyFollow = false %}
 					{% for follower in app.user.followers %}
 						{% if follower == time.user %}
@@ -41,6 +41,9 @@
 			</th>
 			<th>
 				{{ time.time|secToHms }}
+				{% if not time.verified %}
+				<i class="fa fa-warning timeVerification" game="{{ time.level.game.slug }}" time="{{ time.id }}" style="color: tomato; cursor: pointer;"></i>
+				{% endif %}
 			</th>
 			<th>
 				{{ time.video|getHost }}
