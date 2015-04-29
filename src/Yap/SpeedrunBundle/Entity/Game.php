@@ -7,6 +7,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Game
@@ -14,6 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Table(name="spr_game")
  * @ORM\Entity(repositoryClass="Yap\SpeedrunBundle\Entity\GameRepository")
  * @Vich\Uploadable
+ * @ExclusionPolicy("all") 
  */
 class Game
 {
@@ -23,6 +26,7 @@ class Game
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
@@ -30,27 +34,32 @@ class Game
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Expose
      */
     private $name;
 
     /**
     * @Gedmo\Slug(fields={"name"})
     * @ORM\Column(length=128, unique=true)
+    * @Expose
     */
     private $slug;
 
     /**
     * @ORM\Column(name="visible", type="boolean")
+    * @Expose
     */
     private $visible;
 
     /**
     * @ORM\Column(name="official", type="boolean")
+    * @Expose
     */
     private $official;
 
     /**
     * @ORM\OneToMany(targetEntity="Yap\SpeedrunBundle\Entity\Level", mappedBy="game", cascade={"persist"})
+    * @Expose
     */
     private $levels;
 
@@ -61,6 +70,7 @@ class Game
 
     /**
     * @ORM\OneToMany(targetEntity="Yap\SpeedrunBundle\Entity\Linker", mappedBy="game", cascade={"persist"})
+    * @Expose
     */
     private $linkers;
 
@@ -82,6 +92,7 @@ class Game
      * @ORM\Column(type="datetime")
      *
      * @var \DateTime $updatedAt
+     * @Expose
      */
     protected $updatedAt;
 

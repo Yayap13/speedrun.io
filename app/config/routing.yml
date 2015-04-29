@@ -2,6 +2,11 @@ yap_speedrun:
     resource: "@YapSpeedrunBundle/Resources/config/routing.yml"
     prefix:   /
 
+yap_speedrun_rest:
+    type: rest
+    resource: "@YapSpeedrunBundle/Resources/config/routing_rest.yml"
+    prefix:   /api
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

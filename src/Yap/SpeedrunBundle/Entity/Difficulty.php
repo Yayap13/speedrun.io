@@ -3,12 +3,15 @@
 namespace Yap\SpeedrunBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Difficulty
  *
  * @ORM\Table(name="spr_difficulty")
  * @ORM\Entity(repositoryClass="Yap\SpeedrunBundle\Entity\DifficultyRepository")
+ * @ExclusionPolicy("all") 
  */
 class Difficulty
 {
@@ -18,6 +21,7 @@ class Difficulty
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
@@ -25,6 +29,7 @@ class Difficulty
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Expose
      */
     private $name;
 

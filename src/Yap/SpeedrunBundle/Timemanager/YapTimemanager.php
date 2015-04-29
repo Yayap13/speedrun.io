@@ -168,4 +168,30 @@ class YapTimemanager
         $this->em->flush();
         return true;
     }
+
+    public function deleteTime($time) {
+        
+        $timeSubmited = $time->getTime();
+        $user = $time->getUser()->getId();
+        $linker = $time->getLinker();
+        $level = $time->getLevel();
+
+        $repository = $this->em->getRepository('YapSpeedrunBundle:Time');
+        $oldTime = $repository->getOldTime($linker, $level, $user, 1);
+        $oldWrTime = $repository->getOldWrTime($linker, $level, 1);
+
+        if ($oldTime != null) {
+            $oldTime->setPb(true);
+            $this->em->persist($oldTime);
+        }
+
+        if ($oldWrTime != null) {
+            $oldWrTime->setWr(true);
+            $this->em->persist($oldWrTime);
+        }
+
+        $this->em->remove($time);
+        $this->em->flush();
+        return true;
+    }
 }

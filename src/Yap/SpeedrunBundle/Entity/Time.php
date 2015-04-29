@@ -4,12 +4,15 @@ namespace Yap\SpeedrunBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Time
  *
  * @ORM\Table(name="spr_time")
  * @ORM\Entity(repositoryClass="Yap\SpeedrunBundle\Entity\TimeRepository")
+ * @ExclusionPolicy("all") 
  */
 class Time
 {
@@ -19,6 +22,7 @@ class Time
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
@@ -26,6 +30,7 @@ class Time
      * @var integer
      *
      * @ORM\Column(name="time", type="integer")
+     * @Expose
      */
     private $time;
 
@@ -33,6 +38,7 @@ class Time
      * @var string
      *
      * @ORM\Column(name="note", type="text")
+     * @Expose
      */
     private $note;
 
@@ -41,6 +47,7 @@ class Time
      *
      * @ORM\Column(name="date", type="datetime")
      * @Assert\DateTime()
+     * @Expose
      */
     private $date;
 
@@ -48,6 +55,7 @@ class Time
      * @var string
      *
      * @ORM\Column(name="video", type="string", length=255)
+     * @Expose
      */
     private $video;
 
@@ -55,6 +63,7 @@ class Time
     * @var boolean
     *
     * @ORM\Column(name="pb", type="boolean")
+    * @Expose
     */
     private $pb;
 
@@ -62,6 +71,7 @@ class Time
     * @var boolean
     *
     * @ORM\Column(name="wr", type="boolean")
+    * @Expose
     */
     private $wr;
 
@@ -69,6 +79,7 @@ class Time
     * @var boolean
     *
     * @ORM\Column(name="oldwr", type="boolean")
+    * @Expose
     */
     private $oldwr;
 
@@ -76,6 +87,7 @@ class Time
     * @var boolean
     *
     * @ORM\Column(name="verified", type="boolean")
+    * @Expose
     */
     private $verified;
 
@@ -93,6 +105,7 @@ class Time
 
     /**
     * @ORM\ManyToOne(targetEntity="Yap\UserBundle\Entity\User")
+    * @Expose
     */
     private $user;
 

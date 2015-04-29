@@ -45,7 +45,7 @@ class TimeRepository extends EntityRepository
 		return $qb->getQuery()->getResult();
 	}
 
-	public function getOldTime($linker, $level, $user)
+	public function getOldTime($linker, $level, $user, $offset = 0)
 	{
 		$qb = $this->_em->createQueryBuilder();
 		
@@ -61,14 +61,15 @@ class TimeRepository extends EntityRepository
 			->setParameter('user', $user)
 
 			->andWhere('t.pb = :pb')
-			->setParameter('pb', 1)
+			->setParameter('pb', ($offset==0) ? 1 : 0)
 			
-			->setMaxResults(1);
+			->setMaxResults(1)
+			->add('orderBy', 't.time ASC');
 
 		return $qb->getQuery()->getOneOrNullResult();
 	}
 
-	public function getOldWrTime($linker, $level)
+	public function getOldWrTime($linker, $level, $offset = 0)
 	{
 		$qb = $this->_em->createQueryBuilder();
 		
@@ -81,9 +82,10 @@ class TimeRepository extends EntityRepository
 			->setParameter('level', $level)
 
 			->andWhere('t.wr = :wr')
-			->setParameter('wr', 1)
+			->setParameter('wr', ($offset==0) ? 1 : 0)
 
-			->setMaxResults(1);
+			->setMaxResults(1)
+			->add('orderBy', 't.time ASC');
 
 		return $qb->getQuery()->getOneOrNullResult();
 	}

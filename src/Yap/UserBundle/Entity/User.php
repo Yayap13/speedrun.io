@@ -4,12 +4,15 @@ namespace Yap\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * User
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Yap\UserBundle\Entity\UserRepository")
+ * @ExclusionPolicy("all")
  */
 class User extends BaseUser
 {

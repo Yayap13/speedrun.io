@@ -1,0 +1,5 @@
+yapspeedrun_rest:
+    type: rest
+    prefix: /v1
+    resource: "Yap\SpeedrunBundle\Controller\RestController"
+    name_prefix: api_1_

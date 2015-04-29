@@ -25,7 +25,9 @@
 		"friendsofsymfony/jsrouting-bundle": "dev-master",
 		"ob/highcharts-bundle": "@dev",
         "vich/uploader-bundle": "0.14.*",
-        "jms/serializer-bundle": "dev-master"
+        "jms/serializer-bundle": "dev-master",
+		"friendsofsymfony/rest-bundle": "@dev",
+		"nelmio/api-doc-bundle": "@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

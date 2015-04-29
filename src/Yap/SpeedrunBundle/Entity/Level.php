@@ -4,12 +4,15 @@ namespace Yap\SpeedrunBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Level
  *
  * @ORM\Table(name="spr_level")
  * @ORM\Entity(repositoryClass="Yap\SpeedrunBundle\Entity\LevelRepository")
+ * @ExclusionPolicy("all") 
  */
 class Level
 {
@@ -19,6 +22,7 @@ class Level
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
@@ -26,12 +30,14 @@ class Level
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Expose
      */
     private $name;
 
     /**
     * @Gedmo\Slug(fields={"name"})
     * @ORM\Column(length=128, unique=true)
+    * @Expose
     */
     private $slug;
 
